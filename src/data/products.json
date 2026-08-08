@@ -1,0 +1,230 @@
+[
+  {
+    "id": "prod-1",
+    "name": "Royal Maroon Bridal Kanchipuram",
+    "collection": "Bridal",
+    "images": [
+      "/assests/IMG-20260807-WA0039.jpg",
+      "/assests/IMG-20260807-WA0037.jpg"
+    ],
+    "price": 1250,
+    "offerPrice": 950,
+    "fabric": "Pure Silk",
+    "color": "Maroon",
+    "stock": 4,
+    "sku": "KB-MR-001",
+    "description": "A breathtaking maroon bridal Kanchipuram silk saree featuring intricate gold zari motifs and a heavy border.",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-2",
+    "name": "Emerald Green Pure Silk",
+    "collection": "Silk",
+    "images": [
+      "/assests/IMG-20260807-WA0037.jpg",
+      "/assests/IMG-20260807-WA0040.jpg"
+    ],
+    "price": 650,
+    "offerPrice": null,
+    "fabric": "Pure Silk",
+    "color": "Emerald Green",
+    "stock": 10,
+    "sku": "PS-EG-002",
+    "description": "Lustrous emerald green pure silk saree with minimal gold detailing for a timeless, elegant look.",
+    "featured": false,
+    "trending": false,
+    "newArrival": true
+  },
+  {
+    "id": "prod-3",
+    "name": "Midnight Blue Kanchipuram",
+    "collection": "Kanchipuram",
+    "images": [
+      "/assests/IMG-20260807-WA0054.jpg",
+      "/assests/IMG-20260807-WA0041.jpg"
+    ],
+    "price": 850,
+    "offerPrice": 750,
+    "fabric": "Kanchipuram Silk",
+    "color": "Midnight Blue",
+    "stock": 2,
+    "sku": "KS-MB-003",
+    "description": "Deep midnight blue Kanchipuram silk with contrast pink border and rich zari pallu.",
+    "featured": true,
+    "trending": true,
+    "newArrival": false
+  },
+  {
+    "id": "prod-4",
+    "name": "Vintage Rose Banarasi",
+    "collection": "Banarasi",
+    "images": [
+      "/assests/IMG-20260807-WA0041.jpg",
+      "/assests/IMG-20260807-WA0046.jpg"
+    ],
+    "price": 950,
+    "offerPrice": null,
+    "fabric": "Banarasi Silk",
+    "color": "Vintage Rose",
+    "stock": 5,
+    "sku": "BS-VR-004",
+    "description": "A stunning Banarasi weave in vintage rose, adorned with all-over silver and gold zari brocade.",
+    "featured": false,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-5",
+    "name": "Pastel Pink Soft Silk",
+    "collection": "Soft Silk",
+    "images": [
+      "/assests/IMG-20260807-WA0046.jpg",
+      "/assests/IMG-20260807-WA0048.jpg"
+    ],
+    "price": 450,
+    "offerPrice": 399,
+    "fabric": "Soft Silk",
+    "color": "Pastel Pink",
+    "stock": 15,
+    "sku": "SS-PP-005",
+    "description": "Extremely lightweight pastel pink soft silk saree, perfect for day events and effortless draping.",
+    "featured": false,
+    "trending": false,
+    "newArrival": true
+  },
+  {
+    "id": "prod-6",
+    "name": "Ivory & Gold Designer Edition",
+    "collection": "Designer",
+    "images": [
+      "/assests/IMG-20260807-WA0040.jpg",
+      "/Slider 3.png"
+    ],
+    "price": 1400,
+    "offerPrice": 1200,
+    "fabric": "Tissue Silk",
+    "color": "Ivory",
+    "stock": 0,
+    "sku": "DS-IG-006",
+    "description": "Our signature designer tissue silk saree in pristine ivory featuring hand-embroidered gold accents.",
+    "featured": true,
+    "trending": true,
+    "newArrival": false
+  },
+  {
+    "id": "prod-7",
+    "name": "Golden Mustard Wedding Silk",
+    "collection": "Wedding",
+    "images": [
+      "/assests/IMG-20260807-WA0043.jpg",
+      "/assests/IMG-20260807-WA0037.jpg"
+    ],
+    "price": 750,
+    "offerPrice": null,
+    "fabric": "Pure Silk",
+    "color": "Golden Mustard",
+    "stock": 8,
+    "sku": "WS-GM-007",
+    "description": "Bright golden mustard silk saree, a traditional favorite for haldi and wedding rituals.",
+    "featured": false,
+    "trending": true,
+    "newArrival": false
+  },
+  {
+    "id": "prod-8",
+    "name": "Ruby Red Festive Weave",
+    "collection": "Festive",
+    "images": [
+      "/assests/IMG-20260807-WA0048.jpg",
+      "/Slider 2.png"
+    ],
+    "price": 550,
+    "offerPrice": 450,
+    "fabric": "Art Silk",
+    "color": "Ruby Red",
+    "stock": 20,
+    "sku": "FW-RR-008",
+    "description": "A vibrant ruby red festive saree with intricate contrast weaving, designed for celebrations.",
+    "featured": false,
+    "trending": false,
+    "newArrival": true
+  },
+  {
+    "id": "prod-9",
+    "name": "Classic Black & Gold Banarasi",
+    "collection": "Banarasi",
+    "images": [
+      "/Slider 2.png",
+      "/assests/IMG-20260807-WA0041.jpg"
+    ],
+    "price": 1100,
+    "offerPrice": null,
+    "fabric": "Banarasi Silk",
+    "color": "Black",
+    "stock": 3,
+    "sku": "BS-BK-009",
+    "description": "A bold and beautiful black Banarasi silk saree with heavy gold zari borders and pallu.",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-10",
+    "name": "Lavender Dream Soft Silk",
+    "collection": "Soft Silk",
+    "images": [
+      "/Slider 3.png",
+      "/assests/IMG-20260807-WA0046.jpg"
+    ],
+    "price": 480,
+    "offerPrice": 420,
+    "fabric": "Soft Silk",
+    "color": "Lavender",
+    "stock": 12,
+    "sku": "SS-LV-010",
+    "description": "A soothing lavender soft silk saree with subtle silver zari, perfect for modern elegance.",
+    "featured": false,
+    "trending": false,
+    "newArrival": false
+  },
+  {
+    "id": "prod-11",
+    "name": "Regal Purple Kanchipuram",
+    "collection": "Kanchipuram",
+    "images": [
+      "/assests/IMG-20260807-WA0054.jpg",
+      "/assests/IMG-20260807-WA0039.jpg"
+    ],
+    "price": 920,
+    "offerPrice": null,
+    "fabric": "Kanchipuram Silk",
+    "color": "Regal Purple",
+    "stock": 6,
+    "sku": "KS-RP-011",
+    "description": "Rich regal purple Kanchipuram silk with temple border design, exuding royal heritage.",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-12",
+    "name": "Saffron Silk Designer Drape",
+    "collection": "Designer",
+    "images": [
+      "/assests/IMG-20260807-WA0040.jpg",
+      "/assests/IMG-20260807-WA0043.jpg"
+    ],
+    "price": 1250,
+    "offerPrice": 1100,
+    "fabric": "Tissue Silk",
+    "color": "Saffron",
+    "stock": 1,
+    "sku": "DS-SF-012",
+    "description": "A stunning designer drape in bright saffron with contemporary geometric zari patterns.",
+    "featured": false,
+    "trending": true,
+    "newArrival": false
+  }
+]

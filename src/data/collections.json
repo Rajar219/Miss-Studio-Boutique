@@ -1,0 +1,82 @@
+[
+  {
+    "id": "col-1",
+    "name": "Bridal",
+    "slug": "bridal",
+    "coverImage": "/assests/IMG-20260807-WA0039.jpg",
+    "description": "Exquisite bridal masterpieces handwoven for your perfect day. Radiate elegance and tradition.",
+    "featured": true
+  },
+  {
+    "id": "col-2",
+    "name": "Silk",
+    "slug": "silk",
+    "coverImage": "/assests/IMG-20260807-WA0037.jpg",
+    "description": "Pure, lustrous silk sarees that define timeless grace and unmatched craftsmanship.",
+    "featured": true
+  },
+  {
+    "id": "col-3",
+    "name": "Kanchipuram",
+    "slug": "kanchipuram",
+    "coverImage": "/assests/IMG-20260807-WA0054.jpg",
+    "description": "Authentic Kanchipuram silks featuring heavy zari borders and rich traditional motifs.",
+    "featured": true
+  },
+  {
+    "id": "col-4",
+    "name": "Banarasi",
+    "slug": "banarasi",
+    "coverImage": "/assests/IMG-20260807-WA0041.jpg",
+    "description": "Opulent Banarasi weaves with intricate brocade work, fit for royalty.",
+    "featured": true
+  },
+  {
+    "id": "col-5",
+    "name": "Soft Silk",
+    "slug": "soft-silk",
+    "coverImage": "/assests/IMG-20260807-WA0046.jpg",
+    "description": "Lightweight, breathable soft silks for effortless all-day elegance.",
+    "featured": true
+  },
+  {
+    "id": "col-6",
+    "name": "Designer",
+    "slug": "designer",
+    "coverImage": "/assests/IMG-20260807-WA0040.jpg",
+    "description": "Contemporary designer pieces blending modern aesthetics with traditional weaving techniques.",
+    "featured": false
+  },
+  {
+    "id": "col-7",
+    "name": "Wedding",
+    "slug": "wedding",
+    "coverImage": "/assests/IMG-20260807-WA0043.jpg",
+    "description": "A curated selection for the entire wedding trousseau, from haldi to reception.",
+    "featured": false
+  },
+  {
+    "id": "col-8",
+    "name": "Festive",
+    "slug": "festive",
+    "coverImage": "/assests/IMG-20260807-WA0048.jpg",
+    "description": "Vibrant and celebratory sarees designed to light up your festive occasions.",
+    "featured": false
+  },
+  {
+    "id": "col-9",
+    "name": "New Arrivals",
+    "slug": "new-arrivals",
+    "coverImage": "/Slider 2.png",
+    "description": "The latest additions to our boutique, fresh from the weaver's loom.",
+    "featured": true
+  },
+  {
+    "id": "col-10",
+    "name": "Best Sellers",
+    "slug": "best-sellers",
+    "coverImage": "/Slider 3.png",
+    "description": "Our most loved pieces, cherished by elegant women worldwide.",
+    "featured": true
+  }
+]

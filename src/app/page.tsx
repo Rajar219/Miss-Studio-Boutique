@@ -1,69 +1,227 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Star } from "lucide-react";
+import ProductCard from "@/components/ProductCard";
+import { getProducts } from "@/lib/products";
+import { getCollections } from "@/lib/collections";
+import HeroCarousel from "@/components/HeroCarousel";
+import FadeInView from "@/components/FadeInView";
 
-export default function Home() {
+const reviews = [
+  { name: "Ananya Sharma", text: "The Kanchipuram silk I bought for my wedding was absolutely breathtaking. The craftsmanship is unmatched.", location: "Mumbai" },
+  { name: "Priya Patel", text: "Exceptional quality and service. The sarees feel like a piece of heritage passed down through generations.", location: "London" },
+  { name: "Meera Reddy", text: "Miss Studio has the most elegant collection. The fabrics are pure and the designs are truly timeless.", location: "Hyderabad" },
+];
+
+export default async function Home() {
+  const allProducts = await getProducts();
+  const collections = await getCollections();
+  
+  const featuredProducts = allProducts.filter((p) => p.featured).slice(0, 4); 
+  const bestSellers = allProducts.filter((p) => p.trending).slice(0, 4);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="flex flex-col min-h-screen bg-background">
+      
+      {/* 1. Immersive Hero Section */}
+      <HeroCarousel />
+
+      {/* 2. Shop by Category */}
+      <section className="py-24 md:py-32 bg-background relative border-b border-gold/20 overflow-hidden">
+        <FadeInView className="container mx-auto px-4 md:px-8">
+          
+          <div className="flex items-center justify-center gap-6 mb-16">
+            <div className="h-px w-16 bg-gold/50 relative">
+              <div className="absolute -left-1 -top-1 w-2 h-2 rotate-45 border border-gold/50 bg-background" />
+            </div>
+            <h2 className="font-serif text-3xl md:text-4xl text-wine-dark tracking-[0.15em] uppercase">Shop by Category</h2>
+            <div className="h-px w-16 bg-gold/50 relative">
+              <div className="absolute -right-1 -top-1 w-2 h-2 rotate-45 border border-gold/50 bg-background" />
+            </div>
+          </div>
+          
+          <div className="flex overflow-x-auto pb-8 gap-8 md:gap-14 justify-start md:justify-center scrollbar-hide">
+            {collections.map((collection) => (
+              <Link 
+                key={collection.id} 
+                href={`/collections/${collection.slug}`}
+                className="flex flex-col items-center gap-6 group shrink-0"
+              >
+                <div className="relative w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border border-gold/30 p-2 transition-all duration-700 group-hover:scale-105 group-hover:border-gold">
+                  <div className="relative w-full h-full rounded-full overflow-hidden">
+                    <Image
+                      src={collection.coverImage}
+                      alt={collection.name}
+                      fill
+                      className="object-cover transition-transform duration-[2000ms] group-hover:scale-125"
+                    />
+                    <div className="absolute inset-0 bg-wine-dark/10 group-hover:bg-transparent transition-colors duration-700" />
+                  </div>
+                </div>
+                <span className="font-medium text-xs text-wine-dark tracking-[0.2em] transition-colors uppercase">
+                  {collection.name}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </FadeInView>
+      </section>
+
+      {/* 3. Featured Collections */}
+      <section className="py-24 md:py-32 bg-wine-dark overflow-hidden">
+        <FadeInView className="container mx-auto px-4 md:px-8">
+          
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+            <div className="max-w-xl">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-px w-8 bg-gold" />
+                <span className="text-gold tracking-[0.3em] uppercase text-[10px] font-medium">Curated Selection</span>
+              </div>
+              <h2 className="font-serif text-3xl md:text-5xl text-white tracking-wide mb-4">Featured Collections</h2>
+              <p className="text-white/60 font-light leading-relaxed">Discover our most exquisite pieces, handwoven with precision and love for your most cherished moments.</p>
+            </div>
+
+            <Link 
+              href="/collections"
+              className="text-gold text-xs tracking-[0.2em] uppercase font-medium border border-gold/30 px-8 py-4 hover:bg-gold hover:text-wine-dark transition-colors flex items-center gap-2 shrink-0"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+              View All <ArrowRight size={14} />
+            </Link>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {featuredProducts.map((product, index) => (
+              <FadeInView key={product.id} delay={index * 0.1}>
+                <ProductCard product={product} />
+              </FadeInView>
+            ))}
+          </div>
+        </FadeInView>
+      </section>
+
+      {/* 4. Premium Collection Banner */}
+      <section className="bg-background relative">
+        <div className="flex flex-col md:flex-row h-auto md:h-[80vh] min-h-[600px]">
+          <div className="w-full md:w-1/2 relative h-[50vh] md:h-full">
             <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+              src="/assests/IMG-20260807-WA0054.jpg"
+              alt="Premium Silk Saree"
+              fill
+              className="object-cover"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          </div>
+          <div className="w-full md:w-1/2 flex items-center justify-center p-12 md:p-24 bg-background">
+            <FadeInView className="max-w-lg text-center md:text-left">
+              <div className="flex items-center justify-center md:justify-start gap-3 mb-6">
+                <div className="h-px w-12 bg-gold/60" />
+                <span className="text-wine tracking-[0.3em] uppercase text-xs font-medium">The Royal Edit</span>
+                <div className="h-px w-12 bg-gold/60 md:hidden" />
+              </div>
+              <h2 className="font-serif text-4xl md:text-6xl text-wine-dark leading-tight mb-8">Elegance<br/>Redefined.</h2>
+              <p className="text-wine-dark/70 font-light leading-relaxed mb-10 text-lg">
+                Step into a world of unparalleled luxury with our new Royal Edit. Each saree is a masterpiece, taking months to weave by master artisans.
+              </p>
+              <Link 
+                href="/collections?category=BRIDAL%20SAREES"
+                className="inline-block bg-wine-dark text-gold hover:bg-gold hover:text-wine-dark transition-colors duration-300 px-10 py-4 font-medium text-xs tracking-[0.2em] uppercase"
+              >
+                Shop The Edit
+              </Link>
+            </FadeInView>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Best Sellers */}
+      <section className="py-24 md:py-32 bg-background overflow-hidden border-t border-gold/10">
+        <FadeInView className="container mx-auto px-4 md:px-8">
+          
+          <div className="flex flex-col items-center text-center mb-16">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="h-px w-10 bg-gold" />
+              <span className="text-wine tracking-[0.3em] uppercase text-[10px] font-medium">Most Loved</span>
+              <div className="h-px w-10 bg-gold" />
+            </div>
+            <h2 className="font-serif text-3xl md:text-5xl text-wine-dark tracking-wide">Best Sellers</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {bestSellers.map((product, index) => (
+              <FadeInView key={product.id} delay={index * 0.1}>
+                <ProductCard product={product} />
+              </FadeInView>
+            ))}
+          </div>
+        </FadeInView>
+      </section>
+
+      {/* 6. Customer Reviews */}
+      <section className="py-24 md:py-32 bg-wine-dark relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+        <FadeInView className="container mx-auto px-4 md:px-8 text-center relative z-10">
+          <h2 className="font-serif text-3xl md:text-5xl text-gold mb-16">Words of Love</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+            {reviews.map((review, i) => (
+              <div key={i} className="flex flex-col items-center bg-background/5 p-8 border border-gold/10 hover:border-gold/30 transition-colors">
+                <div className="flex gap-1 text-gold mb-6">
+                  {[...Array(5)].map((_, idx) => <Star key={idx} size={16} fill="currentColor" />)}
+                </div>
+                <p className="text-white/80 font-serif italic text-lg leading-relaxed mb-8 flex-1">
+                  &quot;{review.text}&quot;
+                </p>
+                <div className="mt-auto">
+                  <p className="text-gold text-sm tracking-[0.15em] uppercase font-medium">{review.name}</p>
+                  <p className="text-white/40 text-xs tracking-wider mt-1">{review.location}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </FadeInView>
+      </section>
+
+      {/* 7. Instagram Gallery */}
+      <section className="py-24 bg-background">
+        <FadeInView className="container mx-auto px-4 md:px-8 text-center">
+          <div className="flex justify-center items-center gap-2 text-wine mb-4">
+            <span className="text-xs tracking-[0.2em] uppercase font-medium">@missstudio</span>
+          </div>
+          <h2 className="font-serif text-3xl md:text-4xl text-wine-dark mb-12">Follow Our Journey</h2>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {collections.slice(0, 4).map((col) => (
+              <Link href={`/collections/${col.slug}`} key={col.id} className="relative aspect-square group overflow-hidden bg-background/5">
+                <Image
+                  src={col.coverImage}
+                  alt={col.name}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-wine-dark/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                  <span className="text-white text-xs tracking-[0.2em] uppercase font-medium">View Collection</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </FadeInView>
+      </section>
+
+      {/* 8. WhatsApp CTA */}
+      <section className="py-16 bg-gold">
+        <div className="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="text-center md:text-left">
+            <h2 className="font-serif text-2xl md:text-3xl text-wine-dark mb-2">Need Personalized Assistance?</h2>
+            <p className="text-wine-dark/80 text-sm md:text-base">Our stylists are available on WhatsApp to help you choose the perfect saree.</p>
+          </div>
+          <a 
+            href="#" 
+            className="flex items-center gap-3 bg-wine-dark text-gold px-8 py-4 uppercase text-xs tracking-[0.15em] font-medium hover:bg-white hover:text-wine-dark transition-colors shrink-0"
           >
-            Documentation
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21" /><path d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1" /></svg>
+            Chat with a Stylist
           </a>
         </div>
-      </main>
+      </section>
     </div>
   );
 }
