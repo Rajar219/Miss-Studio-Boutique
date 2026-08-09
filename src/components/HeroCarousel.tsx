@@ -89,12 +89,13 @@ export default function HeroCarousel() {
               src={carouselSlides[current].image}
               alt="Luxury Saree Model"
               fill
-              className="object-cover object-top md:object-[center_top]"
+              quality={100}
+              sizes="100vw"
+              className="object-cover object-[75%_top] md:object-[center_top]"
               priority
             />
-            {/* Dark Wine Gradient Overlay for Text Legibility (Sabyasachi style) */}
-            <div className="absolute inset-0 bg-gradient-to-r from-wine-dark/95 via-wine-dark/70 to-transparent w-full md:w-[75%] lg:w-[60%] z-10" />
-            <div className="absolute inset-0 bg-black/20 z-10" /> {/* Subtle overall darkening */}
+            {/* Subtle overall darkening instead of heavy gradient */}
+            <div className="absolute inset-0 bg-black/30 z-10" /> 
           </div>
         </motion.div>
       </AnimatePresence>
@@ -105,7 +106,7 @@ export default function HeroCarousel() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 1, ease: "easeOut" }}
-          className="max-w-2xl text-left"
+          className="max-w-2xl text-left bg-wine-dark/50 backdrop-blur-md border border-white/20 p-6 md:p-10 lg:p-12 rounded-3xl shadow-2xl"
         >
           <div className="flex items-center gap-3 mb-6">
             <div className="h-px w-10 bg-gold/70" />
