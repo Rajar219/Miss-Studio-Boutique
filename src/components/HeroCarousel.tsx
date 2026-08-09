@@ -69,7 +69,7 @@ export default function HeroCarousel() {
         <div className="w-full bg-wine-dark rounded-[30px] md:rounded-[40px] overflow-hidden flex flex-col-reverse lg:flex-row relative shadow-[0_20px_50px_rgba(0,0,0,0.3)] min-h-[75vh] md:min-h-[85vh]">
           
           {/* LEFT COLUMN: Content */}
-          <div className="w-full lg:w-1/2 p-10 md:p-16 lg:p-24 flex flex-col justify-start pt-16 lg:pt-32 relative z-20">
+          <div className="w-full lg:w-1/2 p-10 md:p-16 lg:p-24 flex flex-col justify-center relative z-20">
             <AnimatePresence mode="wait">
               <motion.div
                 key={current}
@@ -77,20 +77,20 @@ export default function HeroCarousel() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="flex flex-col items-center lg:items-start text-center lg:text-left"
+                className="flex flex-col items-center lg:items-start text-center lg:text-left w-full"
               >
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center justify-center lg:justify-start gap-3 mb-6 w-full">
                   <div className="h-px w-8 bg-gold/70" />
                   <span className="text-gold tracking-[0.3em] uppercase text-[10px] md:text-xs font-medium">{carouselSlides[current].eyebrow}</span>
                 </div>
 
-                <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white leading-[1.1] mb-6 tracking-wide drop-shadow-sm">
+                <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white leading-[1.1] mb-6 tracking-wide drop-shadow-sm text-center lg:text-left w-full">
                   {carouselSlides[current].title.split('\n').map((line, i) => (
                     <span key={i} className="block">{line}</span>
                   ))}
                 </h1>
                 
-                <p className="text-white/80 text-sm md:text-base lg:text-lg mb-12 max-w-md font-light leading-relaxed">
+                <p className="text-white/80 text-sm md:text-base lg:text-lg mb-12 max-w-md font-light leading-relaxed text-center lg:text-left w-full">
                   {carouselSlides[current].subtitle}
                 </p>
                 
