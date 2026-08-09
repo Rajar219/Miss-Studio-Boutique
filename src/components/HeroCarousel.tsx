@@ -17,6 +17,7 @@ const carouselSlides = [
     subtitle: "Discover elegant sarees crafted for celebrations, occasions and unforgettable moments.",
     link: "/collections",
     eyebrow: "NEW COLLECTION",
+    objectPosition: "center 20%",
   },
   {
     id: 2,
@@ -25,6 +26,7 @@ const carouselSlides = [
     subtitle: "Discover the finest Kanchipuram and Banarasi silks for your special moments.",
     link: "/collections?category=SILK%20SAREES",
     eyebrow: "SILK SAREES",
+    objectPosition: "right 20%",
   },
   {
     id: 3,
@@ -33,6 +35,7 @@ const carouselSlides = [
     subtitle: "Exquisite bridal collections designed to make you shine on your wedding day.",
     link: "/collections?category=BRIDAL%20SAREES",
     eyebrow: "BRIDAL EDIT",
+    objectPosition: "left 20%",
   },
 ];
 
@@ -155,7 +158,8 @@ export default function HeroCarousel() {
                   fill
                   quality={100}
                   unoptimized={true}
-                  className="object-cover object-[center_top] lg:object-[center_20%]"
+                  className="object-cover"
+                  style={{ objectPosition: carouselSlides[current].objectPosition }}
                   priority
                 />
                 {/* Subtle gradient to blend the image edge with the wine-dark left column on desktop */}
