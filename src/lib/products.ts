@@ -18,6 +18,9 @@ export interface Product {
   featured: boolean;
   trending: boolean;
   newArrival: boolean;
+  category?: string;
+  occasion?: string;
+  sareeType?: string;
 }
 
 const getProductsFilePath = () => {

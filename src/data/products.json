@@ -4,7 +4,9 @@
     "name": "New Arrival Saree 1",
     "collection": "New Arrivals",
     "images": [
-      "/Saree/IMG-20260807-WA0031.jpg"
+      "/Saree/IMG-20260807-WA0031.jpg",
+      "/Saree/IMG-20260807-WA0032.jpg",
+      "/Saree/IMG-20260807-WA0033.jpg"
     ],
     "price": 611,
     "offerPrice": 519,
@@ -15,7 +17,10 @@
     "description": "Beautiful saree",
     "featured": true,
     "trending": true,
-    "newArrival": true
+    "newArrival": true,
+    "category": "SILK SAREES",
+    "occasion": "Wedding",
+    "sareeType": "Kanchipuram"
   },
   {
     "id": "prod-2",
@@ -28,7 +33,7 @@
     "offerPrice": 603,
     "fabric": "Silk",
     "color": "Assorted",
-    "stock": 10,
+    "stock": 0,
     "sku": "SKU-2",
     "description": "Beautiful saree",
     "featured": true,
@@ -46,7 +51,7 @@
     "offerPrice": null,
     "fabric": "Silk",
     "color": "Assorted",
-    "stock": 10,
+    "stock": 2,
     "sku": "SKU-3",
     "description": "Beautiful saree",
     "featured": true,
