@@ -59,8 +59,10 @@ export default function HeroCarousel() {
       {/* The new padding structure around the hero */}
       <div className="container mx-auto px-4 pt-4 md:pt-8 md:px-8">
         
-        {/* Large centered rounded hero container */}
-        <div className="w-full bg-wine-dark rounded-[30px] md:rounded-[40px] overflow-hidden flex flex-col-reverse lg:flex-row relative shadow-[0_20px_50px_rgba(0,0,0,0.3)] min-h-[75vh] md:min-h-[85vh]">
+        {/* Outer Premium Frame */}
+        <div className="w-full bg-gold/5 border border-gold/10 p-2 md:p-6 lg:p-8 rounded-[32px] md:rounded-[48px] shadow-sm">
+          {/* Large centered rounded hero container */}
+          <div className="w-full bg-wine-dark rounded-[24px] md:rounded-[36px] overflow-hidden flex flex-col-reverse lg:flex-row relative shadow-[0_20px_50px_rgba(0,0,0,0.3)] min-h-[75vh] md:min-h-[85vh]">
           
           {/* LEFT COLUMN: Content */}
           <div className="w-full lg:w-1/2 p-10 md:p-16 lg:p-24 flex flex-col justify-center relative z-20">
@@ -163,6 +165,7 @@ export default function HeroCarousel() {
             </AnimatePresence>
           </div>
 
+          </div>
         </div>
       </div>
       
