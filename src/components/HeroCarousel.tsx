@@ -90,25 +90,25 @@ export default function HeroCarousel() {
               alt="Luxury Saree Model"
               fill
               quality={100}
-              sizes="100vw"
-              className="object-cover object-[75%_top] md:object-[center_top]"
+              unoptimized={true} // Forces HD quality without aggressive Next.js resizing for heavy crops
+              className="object-cover object-[85%_center] md:object-center" // Shifts focal point to the right on mobile to show the model
               priority
             />
-            {/* Subtle overall darkening instead of heavy gradient */}
-            <div className="absolute inset-0 bg-black/30 z-10" /> 
+            {/* Subtle overall darkening */}
+            <div className="absolute inset-0 bg-black/20 z-10" /> 
           </div>
         </motion.div>
       </AnimatePresence>
 
-      <div className="container mx-auto px-4 md:px-12 relative z-20 flex h-full items-center">
+      <div className="container mx-auto px-4 md:px-12 relative z-20 flex h-full items-center justify-center md:justify-start pt-12 md:pt-0">
         <motion.div
           key={`content-${current}`}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 1, ease: "easeOut" }}
-          className="max-w-2xl text-left bg-wine-dark/50 backdrop-blur-md border border-white/20 p-6 md:p-10 lg:p-12 rounded-3xl shadow-2xl"
+          initial={{ opacity: 0, scale: 0.95, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+          className="max-w-xl text-center md:text-left bg-black/30 backdrop-blur-md border border-white/20 p-8 md:p-12 rounded-2xl md:rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] w-full"
         >
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex items-center justify-center md:justify-start gap-3 mb-6">
             <div className="h-px w-10 bg-gold/70" />
             <span className="text-gold tracking-[0.3em] uppercase text-[10px] md:text-xs font-medium">Timeless Elegance</span>
           </div>
@@ -119,11 +119,11 @@ export default function HeroCarousel() {
             ))}
           </h1>
           
-          <p className="text-white/80 text-base md:text-lg mb-10 max-w-lg font-light leading-relaxed">
+          <p className="text-white/80 text-base md:text-lg mb-10 max-w-lg font-light leading-relaxed mx-auto md:mx-0">
             {carouselSlides[current].subtitle}
           </p>
           
-          <div className="flex gap-4 items-center">
+          <div className="flex gap-4 items-center justify-center md:justify-start">
             <Link 
               href={carouselSlides[current].link}
               className="group flex items-center bg-gold text-wine-dark hover:bg-white transition-colors duration-300 rounded-none px-8 py-4 font-medium text-xs tracking-[0.2em] uppercase"
