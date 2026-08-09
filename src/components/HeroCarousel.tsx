@@ -13,9 +13,10 @@ const carouselSlides = [
   {
     id: 1,
     image: slider1,
-    title: "Timeless Elegance.\nWoven for Her.",
-    subtitle: "Exquisite sarees crafted with heritage, designed for today's graceful you.",
+    title: "Timeless Sarees.\nMade to Be Remembered.",
+    subtitle: "Discover elegant sarees crafted for celebrations, occasions and unforgettable moments.",
     link: "/collections",
+    eyebrow: "NEW COLLECTION",
   },
   {
     id: 2,
@@ -23,6 +24,7 @@ const carouselSlides = [
     title: "Pure Silk Heritage.\nWoven with Love.",
     subtitle: "Discover the finest Kanchipuram and Banarasi silks for your special moments.",
     link: "/collections?category=SILK%20SAREES",
+    eyebrow: "SILK SAREES",
   },
   {
     id: 3,
@@ -30,6 +32,7 @@ const carouselSlides = [
     title: "Bridal Masterpieces.\nYour Perfect Day.",
     subtitle: "Exquisite bridal collections designed to make you shine on your wedding day.",
     link: "/collections?category=BRIDAL%20SAREES",
+    eyebrow: "BRIDAL EDIT",
   },
 ];
 
@@ -65,7 +68,7 @@ export default function HeroCarousel() {
           <div className="w-full bg-wine-dark rounded-[24px] md:rounded-[36px] overflow-hidden flex flex-col-reverse lg:flex-row relative shadow-[0_20px_50px_rgba(0,0,0,0.3)] min-h-[75vh] md:min-h-[85vh]">
           
           {/* LEFT COLUMN: Content */}
-          <div className="w-full lg:w-1/2 p-10 md:p-16 lg:p-24 flex flex-col justify-center relative z-20">
+          <div className="w-full lg:w-1/2 p-10 md:p-16 lg:p-24 flex flex-col justify-start pt-16 lg:pt-32 relative z-20">
             <AnimatePresence mode="wait">
               <motion.div
                 key={current}
@@ -77,7 +80,7 @@ export default function HeroCarousel() {
               >
                 <div className="flex items-center gap-3 mb-6">
                   <div className="h-px w-8 bg-gold/70" />
-                  <span className="text-gold tracking-[0.3em] uppercase text-[10px] md:text-xs font-medium">Miss Studio</span>
+                  <span className="text-gold tracking-[0.3em] uppercase text-[10px] md:text-xs font-medium">{carouselSlides[current].eyebrow}</span>
                 </div>
 
                 <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white leading-[1.1] mb-6 tracking-wide drop-shadow-sm">
@@ -86,13 +89,13 @@ export default function HeroCarousel() {
                   ))}
                 </h1>
                 
-                <p className="text-white/80 text-sm md:text-base lg:text-lg mb-10 max-w-md font-light leading-relaxed">
+                <p className="text-white/80 text-sm md:text-base lg:text-lg mb-12 max-w-md font-light leading-relaxed">
                   {carouselSlides[current].subtitle}
                 </p>
                 
                 <Link 
                   href={carouselSlides[current].link}
-                  className="group flex items-center bg-gold text-wine-dark hover:bg-white transition-colors duration-300 rounded-none px-10 py-5 font-medium text-xs tracking-[0.2em] uppercase"
+                  className="group flex items-center bg-gold text-wine-dark hover:bg-white transition-colors duration-300 rounded-none px-8 py-3.5 font-medium text-xs tracking-[0.2em] uppercase"
                 >
                   Explore Collection
                 </Link>
