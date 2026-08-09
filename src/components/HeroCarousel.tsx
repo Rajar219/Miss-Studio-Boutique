@@ -135,7 +135,7 @@ export default function HeroCarousel() {
           </div>
 
           {/* RIGHT COLUMN: Image */}
-          <div className="w-full lg:w-1/2 relative min-h-[50vh] lg:min-h-[auto]">
+          <div className="w-full lg:w-1/2 relative aspect-[3/4] sm:aspect-[4/5] lg:aspect-auto lg:h-full">
             <AnimatePresence initial={false} custom={direction}>
               <motion.div
                 key={current}
