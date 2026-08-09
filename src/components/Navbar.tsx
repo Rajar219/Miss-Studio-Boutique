@@ -69,7 +69,7 @@ export default function Navbar() {
             
             {/* Mobile Menu Button */}
             <button 
-              className="lg:hidden text-gold hover:text-white transition-all duration-[250ms] w-1/4 text-left"
+              className="lg:hidden text-gold hover:text-white transition-all duration-[250ms] w-1/4 text-left p-2 -ml-2"
               onClick={() => setIsMobileMenuOpen(true)}
               aria-label="Open Mobile Menu"
             >
@@ -106,8 +106,8 @@ export default function Navbar() {
               <div 
                 className={`transition-all duration-[500ms] pointer-events-auto rounded-full flex items-center justify-center relative ${
                   scrolled 
-                    ? "w-[61px] h-[61px] md:w-[76px] md:h-[76px] translate-y-0" 
-                    : "w-[72px] h-[72px] md:w-[100px] md:h-[100px] translate-y-[40%]"
+                    ? "w-[56px] h-[56px] md:w-[76px] md:h-[76px] translate-y-0" 
+                    : "w-[64px] h-[64px] md:w-[100px] md:h-[100px] translate-y-0 md:translate-y-[40%]"
                 } bg-gradient-to-br from-[#FDE08B] via-[#D4AF37] to-[#8A6D1C] p-[3px] shadow-[0_8px_20px_rgba(0,0,0,0.5),_inset_0_2px_4px_rgba(255,255,255,0.4)]`}
               >
                 <Link href="/" className="flex items-center justify-center w-full h-full rounded-full overflow-hidden relative bg-wine-dark border-[2px] border-[#4A0A23] shadow-[inset_0_4px_10px_rgba(0,0,0,0.8)]">
@@ -173,17 +173,17 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Icons (Right) */}
-            <div className="flex lg:hidden items-center justify-end gap-[22px] w-1/4 text-white/90">
-              <button aria-label="Search" className="hover:text-gold transition-colors duration-[250ms]">
+            <div className="flex lg:hidden items-center justify-end gap-1 w-1/4 text-white/90">
+              <button aria-label="Search" className="hover:text-gold transition-colors duration-[250ms] p-2">
                 <Search size={20} strokeWidth={1.5} />
               </button>
               <button 
                 onClick={() => setIsCartOpen(true)}
                 aria-label="Cart" 
-                className="hover:text-gold transition-colors duration-[250ms] relative"
+                className="hover:text-gold transition-colors duration-[250ms] relative p-2 -mr-2"
               >
                 <ShoppingBag size={20} strokeWidth={1.5} />
-                <span className="text-[9px] font-bold bg-gold text-wine w-3.5 h-3.5 rounded-full flex items-center justify-center absolute -top-1 -right-1.5">
+                <span className="text-[9px] font-bold bg-gold text-wine w-3.5 h-3.5 rounded-full flex items-center justify-center absolute top-1 right-0.5">
                   {cartCount}
                 </span>
               </button>
@@ -243,6 +243,22 @@ export default function Navbar() {
                   </Link>
                 ))}
               </nav>
+
+              {/* Mobile Contact & Social Actions */}
+              <div className="mt-8 pt-8 border-t border-gold/20 flex flex-col gap-5">
+                <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/80 hover:text-gold transition-colors text-sm">
+                  <span className="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center text-green-500">
+                    <span className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_5px_#22c55e]" />
+                  </span>
+                  WhatsApp Support
+                </a>
+                <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 text-white/80 hover:text-gold transition-colors text-sm">
+                  <span className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center text-gold border border-gold/20">
+                    <Search size={14} />
+                  </span>
+                  Store Locator
+                </Link>
+              </div>
             </motion.div>
           </>
         )}
