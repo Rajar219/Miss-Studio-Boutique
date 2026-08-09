@@ -21,14 +21,8 @@ export default function Footer() {
               Exquisite sarees crafted with heritage, designed for today&apos;s graceful you. Experience the elegance of tradition combined with modern luxury aesthetics.
             </p>
             <div className="flex gap-4">
-              <a href="https://instagram.com/miss_studio_official" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-wine-dark transition-colors">
+              <a href="https://instagram.com/miss_studio_official" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-wine-dark transition-colors">
                 <span className="text-[10px] uppercase font-bold tracking-wider">IG</span>
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-wine-dark transition-colors">
-                <span className="text-[10px] uppercase font-bold tracking-wider">FB</span>
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-wine-dark transition-colors">
-                <span className="text-[10px] uppercase font-bold tracking-wider">X</span>
               </a>
             </div>
           </div>
@@ -37,14 +31,20 @@ export default function Footer() {
           <div>
             <h3 className="font-serif text-2xl mb-8 text-gold">Quick Links</h3>
             <ul className="space-y-4">
-              {["Home", "Collections", "New Arrivals", "About Us", "Contact"].map((link) => (
-                <li key={link}>
+              {[
+                { name: "Home", path: "/" },
+                { name: "Collections", path: "/collections" },
+                { name: "New Arrivals", path: "/new-arrivals" },
+                { name: "About Us", path: "/about" },
+                { name: "Contact", path: "/contact" }
+              ].map((link) => (
+                <li key={link.name}>
                   <Link
-                    href="#"
+                    href={link.path}
                     className="text-white/70 hover:text-gold text-sm transition-colors flex items-center gap-2 group"
                   >
                     <span className="w-2 h-px bg-gold/50 group-hover:w-4 transition-all" />
-                    {link}
+                    {link.name}
                   </Link>
                 </li>
               ))}
@@ -55,14 +55,20 @@ export default function Footer() {
           <div>
             <h3 className="font-serif text-2xl mb-8 text-gold">Customer Care</h3>
             <ul className="space-y-4">
-              {["Shipping Policy", "Returns & Exchanges", "FAQs", "Size Guide", "Track Order"].map((link) => (
-                <li key={link}>
+              {[
+                { name: "Shipping Policy", path: "/shipping" },
+                { name: "Returns & Exchanges", path: "/returns" },
+                { name: "FAQs", path: "/faqs" },
+                { name: "Size Guide", path: "/size-guide" },
+                { name: "Track Order", path: "/track-order" }
+              ].map((link) => (
+                <li key={link.name}>
                   <Link
-                    href="#"
+                    href={link.path}
                     className="text-white/70 hover:text-gold text-sm transition-colors flex items-center gap-2 group"
                   >
                     <span className="w-2 h-px bg-gold/50 group-hover:w-4 transition-all" />
-                    {link}
+                    {link.name}
                   </Link>
                 </li>
               ))}
@@ -92,8 +98,8 @@ export default function Footer() {
         <div className="border-t border-gold/20 pt-8 pb-4 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/50 font-light">
           <p>&copy; {new Date().getFullYear()} Miss Studio. All rights reserved.</p>
           <div className="flex gap-8">
-            <Link href="#" className="hover:text-gold transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-gold transition-colors">Terms of Service</Link>
+            <Link href="/privacy-policy" className="hover:text-gold transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-gold transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

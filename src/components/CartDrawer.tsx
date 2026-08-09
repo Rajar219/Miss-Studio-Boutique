@@ -67,12 +67,15 @@ export default function CartDrawer() {
         {/* Cart Items */}
         <div className="flex-1 overflow-y-auto p-6 scrollbar-hide">
           {cart.length === 0 ? (
-            <div className="h-full flex flex-col items-center justify-center text-foreground/50 space-y-4">
-              <ShoppingBag size={48} className="opacity-20" />
-              <p>Your cart is empty.</p>
+            <div className="h-full flex flex-col items-center justify-center text-wine-dark/60 space-y-6">
+              <div className="w-24 h-24 rounded-full bg-gold/10 flex items-center justify-center mb-2">
+                <ShoppingBag size={40} className="text-gold" />
+              </div>
+              <p className="font-serif text-xl text-wine-dark">Your cart is empty.</p>
+              <p className="text-sm text-center max-w-[250px] mb-4">Discover our exquisite collection of handcrafted sarees and find your perfect match.</p>
               <button 
                 onClick={() => setIsCartOpen(false)}
-                className="text-wine hover:text-gold transition-colors underline underline-offset-4"
+                className="bg-wine-dark text-gold px-8 py-3 uppercase text-xs tracking-[0.15em] font-medium hover:bg-gold hover:text-wine-dark transition-colors"
               >
                 Continue Shopping
               </button>

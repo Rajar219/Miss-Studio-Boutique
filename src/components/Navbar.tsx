@@ -71,6 +71,7 @@ export default function Navbar() {
             <button 
               className="lg:hidden text-gold hover:text-white transition-all duration-[250ms] w-1/4 text-left"
               onClick={() => setIsMobileMenuOpen(true)}
+              aria-label="Open Mobile Menu"
             >
               <Menu size={24} strokeWidth={1.5} />
             </button>
