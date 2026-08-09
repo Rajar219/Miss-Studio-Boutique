@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LayoutDashboard, Library, ShoppingBag, Image as ImageIcon, Settings, LogOut, Menu } from "lucide-react";
 import { ReactNode } from "react";
+import SignOutButton from "@/components/admin/SignOutButton";
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
   return (
@@ -44,10 +45,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
         </nav>
 
         <div className="p-4 border-t border-gray-200">
-          <button className="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 hover:bg-red-50 hover:text-red-600 transition-colors w-full group">
-            <LogOut size={20} className="text-gray-400 group-hover:text-red-500 transition-colors" />
-            <span className="font-medium">Sign Out</span>
-          </button>
+          <SignOutButton />
         </div>
       </aside>
 

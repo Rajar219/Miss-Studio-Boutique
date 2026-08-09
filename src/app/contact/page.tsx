@@ -24,11 +24,9 @@ export default function ContactPage() {
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <h3 className="font-serif text-xl mb-2 text-foreground">Visit Our Boutique</h3>
+                  <h3 className="font-serif text-xl mb-2 text-foreground">Online Boutique</h3>
                   <p className="text-foreground/70 leading-relaxed">
-                    123 Silk Road, Boutique District<br />
-                    New York, NY 10001<br />
-                    United States
+                    We operate exclusively online. While we don't have a physical store for visits, we are delighted to ship our beautiful collections to you anywhere in India.
                   </p>
                 </div>
               </div>
@@ -38,9 +36,11 @@ export default function ContactPage() {
                   <Phone size={24} />
                 </div>
                 <div>
-                  <h3 className="font-serif text-xl mb-2 text-foreground">Call Us</h3>
-                  <p className="text-foreground/70">+1 (555) 123-4567</p>
-                  <p className="text-foreground/70">+1 (555) 987-6543</p>
+                  <h3 className="font-serif text-xl mb-2 text-foreground">Call or Chat</h3>
+                  <p className="text-foreground/70 mb-3">+91 63820 88191</p>
+                  <a href="https://wa.me/916382088191" target="_blank" rel="noopener noreferrer" className="inline-block bg-[#25D366] text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-[#20bd5a] transition-colors">
+                    Chat with us on WhatsApp
+                  </a>
                 </div>
               </div>
 
@@ -50,8 +50,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="font-serif text-xl mb-2 text-foreground">Email Us</h3>
-                  <p className="text-foreground/70">contact@missstudio.com</p>
-                  <p className="text-foreground/70">support@missstudio.com</p>
+                  <p className="text-foreground/70">missstudio1512@gmail.com</p>
                 </div>
               </div>
 

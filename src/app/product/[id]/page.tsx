@@ -47,11 +47,11 @@ export default async function ProductDetailsPage({ params }: { params: { id: str
               <div className="flex items-baseline gap-3">
                 {product.offerPrice ? (
                   <>
-                    <p className="text-3xl font-medium text-foreground">${product.offerPrice}</p>
-                    <p className="text-lg text-foreground/40 line-through">${product.price}</p>
+                    <p className="text-3xl font-medium text-foreground">Rs. {product.offerPrice}</p>
+                    <p className="text-lg text-foreground/40 line-through">Rs. {product.price}</p>
                   </>
                 ) : (
-                  <p className="text-3xl font-medium text-foreground">${product.price}</p>
+                  <p className="text-3xl font-medium text-foreground">Rs. {product.price}</p>
                 )}
               </div>
               
@@ -117,7 +117,7 @@ export default async function ProductDetailsPage({ params }: { params: { id: str
                 <div className="flex flex-col gap-2">
                   <Truck className="text-wine" size={24} />
                   <span className="font-medium text-foreground">Global Shipping</span>
-                  <span className="text-xs">Free over $200</span>
+                  <span className="text-xs">Free over Rs. 2000</span>
                 </div>
                 <div className="flex flex-col gap-2">
                   <RotateCcw className="text-wine" size={24} />

@@ -79,11 +79,11 @@ export default function ProductCard({ product }: { product: Product }) {
         <div className="flex justify-center items-center gap-3 mt-auto">
           {hasOffer ? (
             <>
-              <p className="text-sm line-through text-wine-dark/40 font-light">${product.price}</p>
-              <p className="font-serif font-medium text-lg text-wine-dark">${product.offerPrice}</p>
+              <p className="text-sm line-through text-wine-dark/40 font-light">Rs. {product.price}</p>
+              <p className="font-serif font-medium text-lg text-wine-dark">Rs. {product.offerPrice}</p>
             </>
           ) : (
-            <p className="font-serif font-medium text-lg text-wine-dark">${product.price}</p>
+            <p className="font-serif font-medium text-lg text-wine-dark">Rs. {product.price}</p>
           )}
         </div>
 

@@ -20,7 +20,7 @@ export default function CartDrawer() {
     e.preventDefault();
     
     // Format WhatsApp Message
-    const phoneNumber = "1234567890"; // Placeholder, can be updated
+    const phoneNumber = "916382088191"; // WhatsApp number for orders
     let message = `*New Order - Miss Studio*\n\n`;
     
     message += `*Customer Details:*\n`;
@@ -31,10 +31,10 @@ export default function CartDrawer() {
     message += `*Order Items:*\n`;
     cart.forEach((item, index) => {
       const price = item.product.offerPrice || item.product.price;
-      message += `${index + 1}. ${item.product.name} (x${item.quantity}) - $${price * item.quantity}\n`;
+      message += `${index + 1}. ${item.product.name} (x${item.quantity}) - Rs. ${price * item.quantity}\n`;
     });
     
-    message += `\n*Total:* $${cartTotal}`;
+    message += `\n*Total:* Rs. ${cartTotal}`;
     
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank");
@@ -108,7 +108,7 @@ export default function CartDrawer() {
                       <p className="text-sm text-foreground/60 mb-2">{item.product.fabric}</p>
                       
                       <div className="flex justify-between items-end mt-auto">
-                        <p className="font-medium text-wine">${price}</p>
+                        <p className="font-medium text-wine">Rs. {price}</p>
                         
                         {/* Quantity Controls */}
                         <div className="flex items-center gap-3 border border-gold/20 rounded-full px-2 py-1">
@@ -140,7 +140,7 @@ export default function CartDrawer() {
           <div className="border-t border-gold/20 p-6 bg-foreground/5">
             <div className="flex justify-between items-center mb-6">
               <span className="text-foreground/80 font-medium">Subtotal</span>
-              <span className="text-2xl font-serif text-wine">${cartTotal}</span>
+              <span className="text-2xl font-serif text-wine">Rs. {cartTotal}</span>
             </div>
             
             <form onSubmit={handleCheckout} className="space-y-4">

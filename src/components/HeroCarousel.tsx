@@ -5,25 +5,28 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, Heart } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import slider1 from "../../public/Slider 1.png";
+import slider2 from "../../public/Slider 2.png";
+import slider3 from "../../public/Slider 3.png";
 
 const carouselSlides = [
   {
     id: 1,
-    image: "/Slider 1.png",
+    image: slider1,
     title: "Timeless Elegance.\nWoven for Her.",
     subtitle: "Exquisite sarees crafted with heritage, designed for today's graceful you.",
     link: "/collections",
   },
   {
     id: 2,
-    image: "/Slider 2.png",
+    image: slider2,
     title: "Pure Silk Heritage.\nWoven with Love.",
     subtitle: "Discover the finest Kanchipuram and Banarasi silks for your special moments.",
     link: "/collections?category=SILK%20SAREES",
   },
   {
     id: 3,
-    image: "/Slider 3.png",
+    image: slider3,
     title: "Bridal Masterpieces.\nYour Perfect Day.",
     subtitle: "Exquisite bridal collections designed to make you shine on your wedding day.",
     link: "/collections?category=BRIDAL%20SAREES",

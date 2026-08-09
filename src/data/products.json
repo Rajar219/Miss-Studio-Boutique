@@ -1,230 +1,992 @@
 [
   {
     "id": "prod-1",
-    "name": "Royal Maroon Bridal Kanchipuram",
-    "collection": "Bridal",
+    "name": "New Arrival Saree 1",
+    "collection": "New Arrivals",
     "images": [
-      "/assests/IMG-20260807-WA0039.jpg",
-      "/assests/IMG-20260807-WA0037.jpg"
+      "/Saree/IMG-20260807-WA0031.jpg"
     ],
-    "price": 1250,
-    "offerPrice": 950,
-    "fabric": "Pure Silk",
-    "color": "Maroon",
-    "stock": 4,
-    "sku": "KB-MR-001",
-    "description": "A breathtaking maroon bridal Kanchipuram silk saree featuring intricate gold zari motifs and a heavy border.",
+    "price": 611,
+    "offerPrice": 519,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-1",
+    "description": "Beautiful saree",
     "featured": true,
     "trending": true,
     "newArrival": true
   },
   {
     "id": "prod-2",
-    "name": "Emerald Green Pure Silk",
-    "collection": "Silk",
+    "name": "New Arrival Saree 2",
+    "collection": "New Arrivals",
     "images": [
-      "/assests/IMG-20260807-WA0037.jpg",
-      "/assests/IMG-20260807-WA0040.jpg"
+      "/Saree/IMG-20260807-WA0034.jpg"
     ],
-    "price": 650,
-    "offerPrice": null,
-    "fabric": "Pure Silk",
-    "color": "Emerald Green",
+    "price": 710,
+    "offerPrice": 603,
+    "fabric": "Silk",
+    "color": "Assorted",
     "stock": 10,
-    "sku": "PS-EG-002",
-    "description": "Lustrous emerald green pure silk saree with minimal gold detailing for a timeless, elegant look.",
-    "featured": false,
-    "trending": false,
+    "sku": "SKU-2",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
     "newArrival": true
   },
   {
     "id": "prod-3",
-    "name": "Midnight Blue Kanchipuram",
-    "collection": "Kanchipuram",
+    "name": "New Arrival Saree 3",
+    "collection": "New Arrivals",
     "images": [
-      "/assests/IMG-20260807-WA0054.jpg",
-      "/assests/IMG-20260807-WA0041.jpg"
+      "/Saree/IMG-20260807-WA0036.jpg"
     ],
-    "price": 850,
-    "offerPrice": 750,
-    "fabric": "Kanchipuram Silk",
-    "color": "Midnight Blue",
-    "stock": 2,
-    "sku": "KS-MB-003",
-    "description": "Deep midnight blue Kanchipuram silk with contrast pink border and rich zari pallu.",
+    "price": 632,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-3",
+    "description": "Beautiful saree",
     "featured": true,
     "trending": true,
-    "newArrival": false
+    "newArrival": true
   },
   {
     "id": "prod-4",
-    "name": "Vintage Rose Banarasi",
-    "collection": "Banarasi",
+    "name": "New Arrival Saree 4",
+    "collection": "New Arrivals",
     "images": [
-      "/assests/IMG-20260807-WA0041.jpg",
-      "/assests/IMG-20260807-WA0046.jpg"
+      "/Saree/IMG-20260807-WA0038.jpg"
     ],
-    "price": 950,
+    "price": 874,
     "offerPrice": null,
-    "fabric": "Banarasi Silk",
-    "color": "Vintage Rose",
-    "stock": 5,
-    "sku": "BS-VR-004",
-    "description": "A stunning Banarasi weave in vintage rose, adorned with all-over silver and gold zari brocade.",
-    "featured": false,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-4",
+    "description": "Beautiful saree",
+    "featured": true,
     "trending": true,
     "newArrival": true
   },
   {
     "id": "prod-5",
-    "name": "Pastel Pink Soft Silk",
-    "collection": "Soft Silk",
+    "name": "New Arrival Saree 5",
+    "collection": "New Arrivals",
     "images": [
-      "/assests/IMG-20260807-WA0046.jpg",
-      "/assests/IMG-20260807-WA0048.jpg"
+      "/Saree/IMG-20260807-WA0042.jpg"
     ],
-    "price": 450,
-    "offerPrice": 399,
-    "fabric": "Soft Silk",
-    "color": "Pastel Pink",
-    "stock": 15,
-    "sku": "SS-PP-005",
-    "description": "Extremely lightweight pastel pink soft silk saree, perfect for day events and effortless draping.",
-    "featured": false,
-    "trending": false,
+    "price": 965,
+    "offerPrice": 820,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-5",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
     "newArrival": true
   },
   {
     "id": "prod-6",
-    "name": "Ivory & Gold Designer Edition",
-    "collection": "Designer",
+    "name": "New Arrival Saree 6",
+    "collection": "New Arrivals",
     "images": [
-      "/assests/IMG-20260807-WA0040.jpg",
-      "/Slider 3.png"
+      "/Saree/IMG-20260807-WA0044.jpg"
     ],
-    "price": 1400,
-    "offerPrice": 1200,
-    "fabric": "Tissue Silk",
-    "color": "Ivory",
-    "stock": 0,
-    "sku": "DS-IG-006",
-    "description": "Our signature designer tissue silk saree in pristine ivory featuring hand-embroidered gold accents.",
+    "price": 737,
+    "offerPrice": 626,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-6",
+    "description": "Beautiful saree",
     "featured": true,
     "trending": true,
-    "newArrival": false
+    "newArrival": true
   },
   {
     "id": "prod-7",
-    "name": "Golden Mustard Wedding Silk",
-    "collection": "Wedding",
+    "name": "New Arrival Saree 7",
+    "collection": "New Arrivals",
     "images": [
-      "/assests/IMG-20260807-WA0043.jpg",
-      "/assests/IMG-20260807-WA0037.jpg"
+      "/Saree/IMG-20260807-WA0045.jpg"
     ],
-    "price": 750,
-    "offerPrice": null,
-    "fabric": "Pure Silk",
-    "color": "Golden Mustard",
-    "stock": 8,
-    "sku": "WS-GM-007",
-    "description": "Bright golden mustard silk saree, a traditional favorite for haldi and wedding rituals.",
-    "featured": false,
+    "price": 677,
+    "offerPrice": 575,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-7",
+    "description": "Beautiful saree",
+    "featured": true,
     "trending": true,
-    "newArrival": false
+    "newArrival": true
   },
   {
     "id": "prod-8",
-    "name": "Ruby Red Festive Weave",
-    "collection": "Festive",
+    "name": "New Arrival Saree 8",
+    "collection": "New Arrivals",
     "images": [
-      "/assests/IMG-20260807-WA0048.jpg",
-      "/Slider 2.png"
+      "/Saree/IMG-20260807-WA0047.jpg"
     ],
-    "price": 550,
-    "offerPrice": 450,
-    "fabric": "Art Silk",
-    "color": "Ruby Red",
-    "stock": 20,
-    "sku": "FW-RR-008",
-    "description": "A vibrant ruby red festive saree with intricate contrast weaving, designed for celebrations.",
-    "featured": false,
-    "trending": false,
+    "price": 544,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-8",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
     "newArrival": true
   },
   {
     "id": "prod-9",
-    "name": "Classic Black & Gold Banarasi",
-    "collection": "Banarasi",
+    "name": "New Arrival Saree 9",
+    "collection": "New Arrivals",
     "images": [
-      "/Slider 2.png",
-      "/assests/IMG-20260807-WA0041.jpg"
+      "/Saree/IMG-20260807-WA0052.jpg"
     ],
-    "price": 1100,
+    "price": 881,
     "offerPrice": null,
-    "fabric": "Banarasi Silk",
-    "color": "Black",
-    "stock": 3,
-    "sku": "BS-BK-009",
-    "description": "A bold and beautiful black Banarasi silk saree with heavy gold zari borders and pallu.",
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-9",
+    "description": "Beautiful saree",
     "featured": true,
     "trending": true,
     "newArrival": true
   },
   {
     "id": "prod-10",
-    "name": "Lavender Dream Soft Silk",
-    "collection": "Soft Silk",
+    "name": "New Arrival Saree 10",
+    "collection": "New Arrivals",
     "images": [
-      "/Slider 3.png",
-      "/assests/IMG-20260807-WA0046.jpg"
+      "/Saree/IMG-20260807-WA0053.jpg"
     ],
-    "price": 480,
-    "offerPrice": 420,
-    "fabric": "Soft Silk",
-    "color": "Lavender",
-    "stock": 12,
-    "sku": "SS-LV-010",
-    "description": "A soothing lavender soft silk saree with subtle silver zari, perfect for modern elegance.",
-    "featured": false,
-    "trending": false,
-    "newArrival": false
+    "price": 924,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-10",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
   },
   {
     "id": "prod-11",
-    "name": "Regal Purple Kanchipuram",
-    "collection": "Kanchipuram",
+    "name": "New Arrival Saree 11",
+    "collection": "New Arrivals",
     "images": [
-      "/assests/IMG-20260807-WA0054.jpg",
-      "/assests/IMG-20260807-WA0039.jpg"
+      "/Saree/IMG-20260807-WA0056.jpg"
     ],
-    "price": 920,
+    "price": 498,
     "offerPrice": null,
-    "fabric": "Kanchipuram Silk",
-    "color": "Regal Purple",
-    "stock": 6,
-    "sku": "KS-RP-011",
-    "description": "Rich regal purple Kanchipuram silk with temple border design, exuding royal heritage.",
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-11",
+    "description": "Beautiful saree",
     "featured": true,
     "trending": true,
     "newArrival": true
   },
   {
     "id": "prod-12",
-    "name": "Saffron Silk Designer Drape",
-    "collection": "Designer",
+    "name": "New Arrival Saree 12",
+    "collection": "New Arrivals",
     "images": [
-      "/assests/IMG-20260807-WA0040.jpg",
-      "/assests/IMG-20260807-WA0043.jpg"
+      "/Saree/IMG-20260807-WA0057.jpg"
     ],
-    "price": 1250,
-    "offerPrice": 1100,
-    "fabric": "Tissue Silk",
-    "color": "Saffron",
-    "stock": 1,
-    "sku": "DS-SF-012",
-    "description": "A stunning designer drape in bright saffron with contemporary geometric zari patterns.",
-    "featured": false,
+    "price": 478,
+    "offerPrice": 406,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-12",
+    "description": "Beautiful saree",
+    "featured": true,
     "trending": true,
-    "newArrival": false
+    "newArrival": true
+  },
+  {
+    "id": "prod-13",
+    "name": "New Arrival Saree 13",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0058.jpg"
+    ],
+    "price": 554,
+    "offerPrice": 470,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-13",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-14",
+    "name": "New Arrival Saree 14",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0059.jpg"
+    ],
+    "price": 714,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-14",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-15",
+    "name": "New Arrival Saree 15",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0062.jpg"
+    ],
+    "price": 556,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-15",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-16",
+    "name": "New Arrival Saree 16",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0063.jpg"
+    ],
+    "price": 760,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-16",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-17",
+    "name": "New Arrival Saree 17",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0068.jpg"
+    ],
+    "price": 631,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-17",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-18",
+    "name": "New Arrival Saree 18",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0069.jpg"
+    ],
+    "price": 691,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-18",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-19",
+    "name": "New Arrival Saree 19",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0070.jpg"
+    ],
+    "price": 536,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-19",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-20",
+    "name": "New Arrival Saree 20",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0071.jpg"
+    ],
+    "price": 733,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-20",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-21",
+    "name": "New Arrival Saree 21",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0072.jpg"
+    ],
+    "price": 918,
+    "offerPrice": 780,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-21",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-22",
+    "name": "New Arrival Saree 22",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0073.jpg"
+    ],
+    "price": 589,
+    "offerPrice": 500,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-22",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-23",
+    "name": "New Arrival Saree 23",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0074.jpg"
+    ],
+    "price": 666,
+    "offerPrice": 566,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-23",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-24",
+    "name": "New Arrival Saree 24",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0077.jpg"
+    ],
+    "price": 630,
+    "offerPrice": 535,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-24",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-25",
+    "name": "New Arrival Saree 25",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0079.jpg"
+    ],
+    "price": 826,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-25",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-26",
+    "name": "New Arrival Saree 26",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0080.jpg"
+    ],
+    "price": 654,
+    "offerPrice": 555,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-26",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-27",
+    "name": "New Arrival Saree 27",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0081.jpg"
+    ],
+    "price": 821,
+    "offerPrice": 697,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-27",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-28",
+    "name": "New Arrival Saree 28",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0082.jpg"
+    ],
+    "price": 626,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-28",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-29",
+    "name": "New Arrival Saree 29",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0084.jpg"
+    ],
+    "price": 677,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-29",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-30",
+    "name": "New Arrival Saree 30",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0086.jpg"
+    ],
+    "price": 811,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-30",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-31",
+    "name": "New Arrival Saree 31",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0093.jpg"
+    ],
+    "price": 806,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-31",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-32",
+    "name": "New Arrival Saree 32",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0094.jpg"
+    ],
+    "price": 517,
+    "offerPrice": 439,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-32",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-33",
+    "name": "New Arrival Saree 33",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0095.jpg"
+    ],
+    "price": 506,
+    "offerPrice": 430,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-33",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-34",
+    "name": "New Arrival Saree 34",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0096.jpg"
+    ],
+    "price": 655,
+    "offerPrice": 556,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-34",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-35",
+    "name": "New Arrival Saree 35",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0097.jpg"
+    ],
+    "price": 481,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-35",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-36",
+    "name": "New Arrival Saree 36",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0098.jpg"
+    ],
+    "price": 812,
+    "offerPrice": 690,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-36",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-37",
+    "name": "New Arrival Saree 37",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0099.jpg"
+    ],
+    "price": 945,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-37",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-38",
+    "name": "New Arrival Saree 38",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0101.jpg"
+    ],
+    "price": 790,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-38",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-39",
+    "name": "New Arrival Saree 39",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0104.jpg"
+    ],
+    "price": 806,
+    "offerPrice": 685,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-39",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-40",
+    "name": "New Arrival Saree 40",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0105.jpg"
+    ],
+    "price": 868,
+    "offerPrice": 737,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-40",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-41",
+    "name": "New Arrival Saree 41",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0106.jpg"
+    ],
+    "price": 858,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-41",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-42",
+    "name": "New Arrival Saree 42",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0107.jpg"
+    ],
+    "price": 778,
+    "offerPrice": 661,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-42",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-43",
+    "name": "New Arrival Saree 43",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0110.jpg"
+    ],
+    "price": 667,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-43",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-44",
+    "name": "New Arrival Saree 44",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0111.jpg"
+    ],
+    "price": 529,
+    "offerPrice": 449,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-44",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-45",
+    "name": "New Arrival Saree 45",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0112.jpg"
+    ],
+    "price": 728,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-45",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-46",
+    "name": "New Arrival Saree 46",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0115.jpg"
+    ],
+    "price": 827,
+    "offerPrice": 702,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-46",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-47",
+    "name": "New Arrival Saree 47",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0117.jpg"
+    ],
+    "price": 885,
+    "offerPrice": 752,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-47",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-48",
+    "name": "New Arrival Saree 48",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0126.jpg"
+    ],
+    "price": 582,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-48",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-49",
+    "name": "New Arrival Saree 49",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0130.jpg"
+    ],
+    "price": 964,
+    "offerPrice": 819,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-49",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-50",
+    "name": "New Arrival Saree 50",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0131.jpg"
+    ],
+    "price": 993,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-50",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-51",
+    "name": "New Arrival Saree 51",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0137.jpg"
+    ],
+    "price": 897,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-51",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-52",
+    "name": "New Arrival Saree 52",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0138.jpg"
+    ],
+    "price": 563,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-52",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-53",
+    "name": "New Arrival Saree 53",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0139.jpg"
+    ],
+    "price": 697,
+    "offerPrice": 592,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-53",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-54",
+    "name": "New Arrival Saree 54",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0140.jpg"
+    ],
+    "price": 679,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-54",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
+  },
+  {
+    "id": "prod-55",
+    "name": "New Arrival Saree 55",
+    "collection": "New Arrivals",
+    "images": [
+      "/Saree/IMG-20260807-WA0141.jpg"
+    ],
+    "price": 452,
+    "offerPrice": null,
+    "fabric": "Silk",
+    "color": "Assorted",
+    "stock": 10,
+    "sku": "SKU-55",
+    "description": "Beautiful saree",
+    "featured": true,
+    "trending": true,
+    "newArrival": true
   }
 ]

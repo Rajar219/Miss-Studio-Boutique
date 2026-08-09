@@ -21,7 +21,7 @@ export default function Footer() {
               Exquisite sarees crafted with heritage, designed for today&apos;s graceful you. Experience the elegance of tradition combined with modern luxury aesthetics.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-wine-dark transition-colors">
+              <a href="https://instagram.com/miss_studio_official" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-wine-dark transition-colors">
                 <span className="text-[10px] uppercase font-bold tracking-wider">IG</span>
               </a>
               <a href="#" className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-wine-dark transition-colors">
@@ -75,15 +75,15 @@ export default function Footer() {
             <ul className="space-y-5 text-sm text-white/70 font-light">
               <li className="flex gap-4 items-start">
                 <MapPin className="text-gold shrink-0 mt-0.5" size={20} strokeWidth={1.5} />
-                <span className="leading-relaxed">123 Silk Road, Heritage District,<br />Kanchipuram, TN 631501</span>
+                <span className="leading-relaxed">Thiruvottiyur, Chennai.<br />(Shipping all over India)</span>
               </li>
               <li className="flex gap-4 items-center">
                 <Phone className="text-gold shrink-0" size={20} strokeWidth={1.5} />
-                <span>+91 98765 43210</span>
+                <span>+91 63820 88191</span>
               </li>
               <li className="flex gap-4 items-center">
                 <Mail className="text-gold shrink-0" size={20} strokeWidth={1.5} />
-                <span>care@missstudio.com</span>
+                <span>missstudio1512@gmail.com</span>
               </li>
             </ul>
           </div>
