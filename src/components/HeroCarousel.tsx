@@ -52,169 +52,160 @@ export default function HeroCarousel() {
       nextSlide();
     }, 6000);
     return () => clearInterval(timer);
-  }, [current]); // Added current to dependency array since nextSlide uses it
-
-  const variants = {
-    enter: () => ({
-      opacity: 0,
-      scale: 1.05,
-    }),
-    center: {
-      zIndex: 1,
-      opacity: 1,
-      scale: 1,
-    },
-    exit: () => ({
-      zIndex: 0,
-      opacity: 0,
-    }),
-  };
+  }, [current]);
 
   return (
-    <section className="relative w-full h-[calc(100vh-72px)] md:h-[calc(100vh-120px)] flex items-center overflow-hidden bg-background">
-      <AnimatePresence initial={false} custom={direction}>
-        <motion.div
-          key={current}
-          custom={direction}
-          variants={variants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{ duration: 1.5, ease: "easeInOut" }}
-          className="absolute inset-0"
-        >
-          {/* Full-width Background Image */}
-          <div className="absolute inset-0 w-full h-full">
-            <Image
-              src={carouselSlides[current].image}
-              alt="Luxury Saree Model"
-              fill
-              quality={100}
-              unoptimized={true} // Forces HD quality without aggressive Next.js resizing for heavy crops
-              className="object-cover object-[85%_center] md:object-center" // Shifts focal point to the right on mobile to show the model
-              priority
-            />
-            {/* Subtle overall darkening */}
-            <div className="absolute inset-0 bg-black/20 z-10" /> 
-          </div>
-        </motion.div>
-      </AnimatePresence>
-
-      <div className="container mx-auto px-4 md:px-12 relative z-20 flex h-full items-center justify-center md:justify-start pt-12 md:pt-0">
-        <motion.div
-          key={`content-${current}`}
-          initial={{ opacity: 0, scale: 0.95, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
-          className="max-w-xl text-center md:text-left bg-black/30 backdrop-blur-md border border-white/20 p-8 md:p-12 rounded-2xl md:rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] w-full"
-        >
-          <div className="flex items-center justify-center md:justify-start gap-3 mb-6">
-            <div className="h-px w-10 bg-gold/70" />
-            <span className="text-gold tracking-[0.3em] uppercase text-[10px] md:text-xs font-medium">Timeless Elegance</span>
-          </div>
-
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl text-white leading-[1.1] mb-8 tracking-wide drop-shadow-sm">
-            {carouselSlides[current].title.split('\n').map((line, i) => (
-              <span key={i} className="block">{line}</span>
-            ))}
-          </h1>
+    <section className="w-full bg-background relative pb-12">
+      {/* The new padding structure around the hero */}
+      <div className="container mx-auto px-4 pt-4 md:pt-8 md:px-8">
+        
+        {/* Large centered rounded hero container */}
+        <div className="w-full bg-wine-dark rounded-[30px] md:rounded-[40px] overflow-hidden flex flex-col-reverse lg:flex-row relative shadow-[0_20px_50px_rgba(0,0,0,0.3)] min-h-[75vh] md:min-h-[85vh]">
           
-          <p className="text-white/80 text-base md:text-lg mb-10 max-w-lg font-light leading-relaxed mx-auto md:mx-0">
-            {carouselSlides[current].subtitle}
-          </p>
-          
-          <div className="flex gap-4 items-center justify-center md:justify-start">
-            <Link 
-              href={carouselSlides[current].link}
-              className="group flex items-center bg-gold text-wine-dark hover:bg-white transition-colors duration-300 rounded-none px-8 py-4 font-medium text-xs tracking-[0.2em] uppercase"
-            >
-              Explore Collection
-            </Link>
-          </div>
-        </motion.div>
-      </div>
+          {/* LEFT COLUMN: Content */}
+          <div className="w-full lg:w-1/2 p-10 md:p-16 lg:p-24 flex flex-col justify-center relative z-20">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={current}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="flex flex-col items-center lg:items-start text-center lg:text-left"
+              >
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="h-px w-8 bg-gold/70" />
+                  <span className="text-gold tracking-[0.3em] uppercase text-[10px] md:text-xs font-medium">Miss Studio</span>
+                </div>
 
-      {/* Navigation Controls */}
-      <div className="absolute bottom-12 left-0 w-full z-30">
-        <div className="container mx-auto px-4 md:px-12 flex justify-start items-center gap-4">
-          <div className="flex gap-3">
-            {carouselSlides.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => {
-                  setDirection(idx > current ? 1 : -1);
-                  setCurrent(idx);
-                }}
-                className={`transition-all duration-500 rounded-full ${
-                  current === idx ? "w-10 h-1.5 bg-gold" : "w-1.5 h-1.5 bg-white/40 hover:bg-white/80"
-                }`}
-                aria-label={`Go to slide ${idx + 1}`}
-              />
-            ))}
+                <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white leading-[1.1] mb-6 tracking-wide drop-shadow-sm">
+                  {carouselSlides[current].title.split('\n').map((line, i) => (
+                    <span key={i} className="block">{line}</span>
+                  ))}
+                </h1>
+                
+                <p className="text-white/80 text-sm md:text-base lg:text-lg mb-10 max-w-md font-light leading-relaxed">
+                  {carouselSlides[current].subtitle}
+                </p>
+                
+                <Link 
+                  href={carouselSlides[current].link}
+                  className="group flex items-center bg-gold text-wine-dark hover:bg-white transition-colors duration-300 rounded-none px-10 py-5 font-medium text-xs tracking-[0.2em] uppercase"
+                >
+                  Explore Collection
+                </Link>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Navigation Controls (Integrated into Left Column) */}
+            <div className="mt-12 lg:mt-20 flex items-center justify-center lg:justify-start gap-6">
+              <div className="flex gap-2">
+                {carouselSlides.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => {
+                      setDirection(idx > current ? 1 : -1);
+                      setCurrent(idx);
+                    }}
+                    className={`transition-all duration-500 rounded-full ${
+                      current === idx ? "w-8 h-1.5 bg-gold" : "w-1.5 h-1.5 bg-white/30 hover:bg-white/60"
+                    }`}
+                    aria-label={`Go to slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
+              
+              <div className="flex gap-2 ml-4">
+                <button 
+                  onClick={prevSlide}
+                  className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-wine-dark transition-colors"
+                  aria-label="Previous slide"
+                >
+                  <ChevronLeft size={16} />
+                </button>
+                <button 
+                  onClick={nextSlide}
+                  className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-wine-dark transition-colors"
+                  aria-label="Next slide"
+                >
+                  <ChevronRight size={16} />
+                </button>
+              </div>
+            </div>
           </div>
+
+          {/* RIGHT COLUMN: Image */}
+          <div className="w-full lg:w-1/2 relative min-h-[50vh] lg:min-h-[auto]">
+            <AnimatePresence initial={false} custom={direction}>
+              <motion.div
+                key={current}
+                custom={direction}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1, ease: "easeInOut" }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={carouselSlides[current].image}
+                  alt="Luxury Saree Model"
+                  fill
+                  quality={100}
+                  unoptimized={true}
+                  className="object-cover object-[center_top] lg:object-[center_20%]"
+                  priority
+                />
+                {/* Subtle gradient to blend the image edge with the wine-dark left column on desktop */}
+                <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-wine-dark to-transparent hidden lg:block" />
+                {/* Subtle gradient on mobile to blend bottom edge */}
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-wine-dark to-transparent lg:hidden" />
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
         </div>
       </div>
-
-      {/* Side Arrows */}
-      <div className="absolute top-1/2 -translate-y-1/2 w-full z-30 px-4 flex justify-between pointer-events-none hidden md:flex">
-        <button 
-          onClick={prevSlide}
-          className="w-12 h-12 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-wine-dark transition-colors pointer-events-auto backdrop-blur-sm bg-wine-dark/20 ml-4"
-          aria-label="Previous slide"
-        >
-          <ChevronLeft size={20} />
-        </button>
-        <button 
-          onClick={nextSlide}
-          className="w-12 h-12 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-wine-dark transition-colors pointer-events-auto backdrop-blur-sm bg-wine-dark/20 mr-4"
-          aria-label="Next slide"
-        >
-          <ChevronRight size={20} />
-        </button>
-      </div>
-
-      {/* Bottom Features Bar (from screenshot) */}
-      <div className="absolute bottom-0 left-0 w-full bg-wine-dark/95 backdrop-blur-md border-t border-gold/20 z-30 hidden lg:block py-6">
-        <div className="container mx-auto px-12">
-          <div className="flex justify-between items-center text-gold">
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full border border-gold/30 flex items-center justify-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2l3 6 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1 3-6z" /></svg>
-              </div>
-              <div>
-                <h4 className="text-sm font-medium tracking-widest uppercase">Premium Quality</h4>
-                <p className="text-[10px] text-white/60 tracking-wider uppercase">Finest Fabrics</p>
-              </div>
+      
+      {/* Bottom Features Bar (kept from original, moved outside the rounded box) */}
+      <div className="container mx-auto px-4 md:px-12 mt-12 hidden lg:block">
+        <div className="flex justify-between items-center text-wine-dark bg-gold/5 rounded-2xl p-8 border border-gold/10">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-full border border-gold/30 flex items-center justify-center bg-white text-gold">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2l3 6 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1 3-6z" /></svg>
             </div>
-            <div className="w-px h-10 bg-gold/20" />
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full border border-gold/30 flex items-center justify-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
-              </div>
-              <div>
-                <h4 className="text-sm font-medium tracking-widest uppercase">Handpicked</h4>
-                <p className="text-[10px] text-white/60 tracking-wider uppercase">Curated Collections</p>
-              </div>
+            <div>
+              <h4 className="text-sm font-medium tracking-widest uppercase">Premium Quality</h4>
+              <p className="text-[10px] text-wine/60 tracking-wider uppercase">Finest Fabrics</p>
             </div>
-            <div className="w-px h-10 bg-gold/20" />
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full border border-gold/30 flex items-center justify-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              </div>
-              <div>
-                <h4 className="text-sm font-medium tracking-widest uppercase">Heritage Weaves</h4>
-                <p className="text-[10px] text-white/60 tracking-wider uppercase">Timeless Craftsmanship</p>
-              </div>
+          </div>
+          <div className="w-px h-10 bg-gold/20" />
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-full border border-gold/30 flex items-center justify-center bg-white text-gold">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
             </div>
-            <div className="w-px h-10 bg-gold/20" />
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full border border-gold/30 flex items-center justify-center">
-                <Heart size={24} strokeWidth={1.5} />
-              </div>
-              <div>
-                <h4 className="text-sm font-medium tracking-widest uppercase">Made for You</h4>
-                <p className="text-[10px] text-white/60 tracking-wider uppercase">For Every Occasion</p>
-              </div>
+            <div>
+              <h4 className="text-sm font-medium tracking-widest uppercase">Handpicked</h4>
+              <p className="text-[10px] text-wine/60 tracking-wider uppercase">Curated Collections</p>
+            </div>
+          </div>
+          <div className="w-px h-10 bg-gold/20" />
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-full border border-gold/30 flex items-center justify-center bg-white text-gold">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h4 className="text-sm font-medium tracking-widest uppercase">Heritage Weaves</h4>
+              <p className="text-[10px] text-wine/60 tracking-wider uppercase">Timeless Craftsmanship</p>
+            </div>
+          </div>
+          <div className="w-px h-10 bg-gold/20" />
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-full border border-gold/30 flex items-center justify-center bg-white text-gold">
+              <Heart size={24} strokeWidth={1.5} />
+            </div>
+            <div>
+              <h4 className="text-sm font-medium tracking-widest uppercase">Made for You</h4>
+              <p className="text-[10px] text-wine/60 tracking-wider uppercase">For Every Occasion</p>
             </div>
           </div>
         </div>
