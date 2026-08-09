@@ -89,10 +89,10 @@ export default async function Home() {
             </Link>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
             {featuredProducts.map((product, index) => (
               <FadeInView key={product.id} delay={index * 0.1}>
-                <ProductCard product={product} />
+                <ProductCard product={product} priority={index < 2} />
               </FadeInView>
             ))}
           </div>
@@ -145,7 +145,7 @@ export default async function Home() {
             <h2 className="font-serif text-3xl md:text-5xl text-wine-dark tracking-wide">Best Sellers</h2>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
             {bestSellers.map((product, index) => (
               <FadeInView key={product.id} delay={index * 0.1}>
                 <ProductCard product={product} />

@@ -74,10 +74,10 @@ export default async function CollectionPage({ params }: CollectionPageProps) {
           </div>
 
           {products.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
               {products.map((product, index) => (
                 <FadeInView key={product.id} delay={index * 0.05}>
-                  <ProductCard product={product} />
+                  <ProductCard product={product} priority={index < 4} />
                 </FadeInView>
               ))}
             </div>

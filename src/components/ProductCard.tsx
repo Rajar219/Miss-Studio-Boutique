@@ -4,7 +4,7 @@ import { Heart, Eye } from "lucide-react";
 import type { Product } from "@/lib/products";
 import AddToCartButton from "@/components/AddToCartButton";
 
-export default function ProductCard({ product }: { product: Product }) {
+export default function ProductCard({ product, priority = false }: { product: Product; priority?: boolean }) {
   const isOutOfStock = product.stock === 0;
   const isLowStock = product.stock > 0 && product.stock <= 3;
   const hasOffer = !!product.offerPrice;
@@ -19,16 +19,17 @@ export default function ProductCard({ product }: { product: Product }) {
             src={product.images[0]}
             alt={product.name}
             fill
-            className="object-cover transition-transform duration-[1000ms] group-hover:scale-110"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+            priority={priority}
+            className="object-cover object-top transition-transform duration-[1000ms] group-hover:scale-110"
+            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
           />
           {product.images[1] && (
             <Image
               src={product.images[1]}
               alt={`${product.name} alternate view`}
               fill
-              className="object-cover transition-opacity duration-700 opacity-0 group-hover:opacity-100 absolute inset-0"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+              className="object-cover object-top transition-opacity duration-700 opacity-0 group-hover:opacity-100 absolute inset-0"
+              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
             />
           )}
           
@@ -42,19 +43,19 @@ export default function ProductCard({ product }: { product: Product }) {
         </button>
 
         {/* Badges */}
-        <div className="absolute top-4 left-4 flex flex-col gap-2 z-10">
+        <div className="absolute top-2 left-2 md:top-4 md:left-4 flex flex-col gap-1 md:gap-2 z-10">
           {product.newArrival && (
-            <span className="bg-wine-dark text-gold text-[10px] uppercase font-semibold tracking-[0.2em] py-1.5 px-3 rounded-none shadow-sm border border-gold/20">
+            <span className="bg-wine-dark text-gold text-[8px] md:text-[10px] uppercase font-semibold tracking-[0.2em] py-1 px-2 md:py-1.5 md:px-3 rounded-none shadow-sm border border-gold/20">
               New
             </span>
           )}
           {product.trending && (
-            <span className="bg-[#4A0A23] text-[#FDE08B] text-[10px] uppercase font-semibold tracking-[0.2em] py-1.5 px-3 rounded-none shadow-sm border border-[#D4AF37]/40">
+            <span className="bg-[#4A0A23] text-[#FDE08B] text-[8px] md:text-[10px] uppercase font-semibold tracking-[0.2em] py-1 px-2 md:py-1.5 md:px-3 rounded-none shadow-sm border border-[#D4AF37]/40">
               Trending
             </span>
           )}
           {hasOffer && (
-            <span className="bg-gold text-wine-dark text-[10px] uppercase font-semibold tracking-[0.2em] py-1.5 px-3 rounded-none shadow-sm">
+            <span className="bg-gold text-wine-dark text-[8px] md:text-[10px] uppercase font-semibold tracking-[0.2em] py-1 px-2 md:py-1.5 md:px-3 rounded-none shadow-sm">
               Sale
             </span>
           )}
@@ -64,26 +65,32 @@ export default function ProductCard({ product }: { product: Product }) {
         <button className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-background/95 text-wine-dark hover:bg-gold hover:text-wine-dark border border-gold/30 text-xs tracking-[0.2em] uppercase font-medium py-3 px-6 rounded-none flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-500 hover:scale-105 z-10 shadow-lg">
           <Eye size={14} /> Quick View
         </button>
+        {/* Mobile Quick View Icon (Visible on touch devices) */}
+        <div className="md:hidden absolute bottom-2 right-2 flex gap-2 z-10">
+           <button aria-label="Quick View" className="w-8 h-8 bg-background/90 text-wine-dark hover:bg-gold hover:text-wine-dark border border-gold/20 rounded-full flex items-center justify-center shadow-md">
+             <Eye size={14} />
+           </button>
+        </div>
       </div>
       
       {/* Product Info */}
-      <div className="p-6 flex flex-col flex-1 text-center bg-background">
-        <p className="text-[10px] uppercase tracking-[0.2em] mb-2 font-medium text-wine/60">{product.collection}</p>
+      <div className="p-3 md:p-6 flex flex-col flex-1 text-center bg-background">
+        <p className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] mb-1 md:mb-2 font-medium text-wine/60">{product.collection}</p>
         
-        <Link href={`/product/${product.id}`} className="mb-3 block">
-          <h3 className="font-serif text-xl transition-colors line-clamp-1 text-wine-dark group-hover:text-gold">
+        <Link href={`/product/${product.id}`} className="mb-2 md:mb-3 block">
+          <h3 className="font-serif text-sm md:text-xl transition-colors line-clamp-2 md:line-clamp-1 text-wine-dark group-hover:text-gold leading-snug">
             {product.name}
           </h3>
         </Link>
 
-        <div className="flex justify-center items-center gap-3 mt-auto">
+        <div className="flex justify-center items-center gap-1.5 md:gap-3 mt-auto flex-wrap">
           {hasOffer ? (
             <>
-              <p className="text-sm line-through text-wine-dark/40 font-light">Rs. {product.price}</p>
-              <p className="font-serif font-medium text-lg text-wine-dark">Rs. {product.offerPrice}</p>
+              <p className="text-[10px] md:text-sm line-through text-wine-dark/40 font-light">Rs. {product.price}</p>
+              <p className="font-serif font-medium text-sm md:text-lg text-wine-dark">Rs. {product.offerPrice}</p>
             </>
           ) : (
-            <p className="font-serif font-medium text-lg text-wine-dark">Rs. {product.price}</p>
+            <p className="font-serif font-medium text-sm md:text-lg text-wine-dark">Rs. {product.price}</p>
           )}
         </div>
 
