@@ -1,8 +1,8 @@
-import { getProducts } from "@/lib/products";
+import { getDbProducts } from "./actions";
 import ProductsTable from "./ProductsTable";
 
 export default async function AdminProductsPage() {
-  const products = await getProducts();
+  const products = await getDbProducts();
   
   return <ProductsTable initialProducts={products} />;
 }
