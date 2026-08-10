@@ -6,12 +6,10 @@ import { getProducts } from "@/lib/products";
 import { getCollections } from "@/lib/collections";
 import HeroCarousel from "@/components/HeroCarousel";
 import FadeInView from "@/components/FadeInView";
+import { siteConfig } from "@/config/site";
 
-const reviews = [
-  { name: "Ananya Sharma", text: "The Kanchipuram silk I bought for my wedding was absolutely breathtaking. The craftsmanship is unmatched.", location: "Mumbai" },
-  { name: "Priya Patel", text: "Exceptional quality and service. The sarees feel like a piece of heritage passed down through generations.", location: "London" },
-  { name: "Meera Reddy", text: "Miss Studio has the most elegant collection. The fabrics are pure and the designs are truly timeless.", location: "Hyderabad" },
-];
+// Reviews removed from production as requested by user.
+// TODO: Fetch real testimonials from DB.
 
 export default async function Home() {
   const allProducts = await getProducts();
@@ -155,28 +153,14 @@ export default async function Home() {
         </FadeInView>
       </section>
 
-      {/* 6. Customer Reviews */}
+      {/* 6. Customer Reviews Placeholder */}
       <section className="py-24 md:py-32 bg-wine-dark relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
         <FadeInView className="container mx-auto px-4 md:px-8 text-center relative z-10">
-          <h2 className="font-serif text-3xl md:text-5xl text-gold mb-16">Words of Love</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-            {reviews.map((review, i) => (
-              <div key={i} className="flex flex-col items-center bg-background/5 p-8 border border-gold/10 hover:border-gold/30 transition-colors">
-                <div className="flex gap-1 text-gold mb-6">
-                  {[...Array(5)].map((_, idx) => <Star key={idx} size={16} fill="currentColor" />)}
-                </div>
-                <p className="text-white/80 font-serif italic text-lg leading-relaxed mb-8 flex-1">
-                  &quot;{review.text}&quot;
-                </p>
-                <div className="mt-auto">
-                  <p className="text-gold text-sm tracking-[0.15em] uppercase font-medium">{review.name}</p>
-                  <p className="text-white/40 text-xs tracking-wider mt-1">{review.location}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <h2 className="font-serif text-3xl md:text-5xl text-gold mb-8">Words of Love</h2>
+          <p className="text-white/60 text-lg max-w-xl mx-auto">
+            Discover what our real customers have to say. Check our Instagram or visit our boutique to hear their stories.
+          </p>
         </FadeInView>
       </section>
 
@@ -214,7 +198,7 @@ export default async function Home() {
             <p className="text-wine-dark/80 text-sm md:text-base">Our stylists are available on WhatsApp to help you choose the perfect saree.</p>
           </div>
           <a 
-            href="https://wa.me/916382088191" 
+            href={`https://wa.me/${siteConfig.whatsappNumber}`}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 bg-wine-dark text-gold px-8 py-4 uppercase text-xs tracking-[0.15em] font-medium hover:bg-white hover:text-wine-dark transition-colors shrink-0"

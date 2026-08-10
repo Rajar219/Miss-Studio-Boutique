@@ -36,6 +36,10 @@ export default function ProductForm({
       featured: false,
       trending: false,
       newArrival: false,
+      category: "",
+      occasion: "",
+      sareeType: "",
+      status: "active",
     }
   );
 
@@ -253,11 +257,59 @@ export default function ProductForm({
               />
             </div>
           </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="space-y-3">
+              <label className="block text-sm font-medium text-gray-700">Category</label>
+              <input 
+                type="text"
+                value={formData.category || ""}
+                onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-wine/20 focus:border-wine outline-none transition-all"
+                placeholder="e.g. SILK SAREES"
+              />
+            </div>
+            <div className="space-y-3">
+              <label className="block text-sm font-medium text-gray-700">Saree Type</label>
+              <input 
+                type="text"
+                value={formData.sareeType || ""}
+                onChange={(e) => setFormData({ ...formData, sareeType: e.target.value })}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-wine/20 focus:border-wine outline-none transition-all"
+                placeholder="e.g. Kanchipuram"
+              />
+            </div>
+            <div className="space-y-3">
+              <label className="block text-sm font-medium text-gray-700">Occasion</label>
+              <input 
+                type="text"
+                value={formData.occasion || ""}
+                onChange={(e) => setFormData({ ...formData, occasion: e.target.value })}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-wine/20 focus:border-wine outline-none transition-all"
+                placeholder="e.g. Wedding"
+              />
+            </div>
+          </div>
         </div>
 
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 space-y-6">
           <h2 className="text-xl font-serif text-wine font-semibold border-b border-gray-100 pb-4">Status & Visibility</h2>
           
+          <div className="space-y-3 max-w-sm mb-6">
+            <label className="block text-sm font-medium text-gray-700">Product Status</label>
+            <select
+              value={formData.status || 'active'}
+              onChange={(e) => setFormData({ ...formData, status: e.target.value as Product['status'] })}
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-wine/20 focus:border-wine outline-none transition-all bg-white"
+            >
+              <option value="active">Active - Visible on store</option>
+              <option value="draft">Draft - Hidden from store</option>
+              <option value="archived">Archived - Discontinued</option>
+              <option value="out_of_stock">Out of Stock - Visible but unpurchasable</option>
+            </select>
+            <p className="text-xs text-gray-500">Note: Draft and Archived products will not appear on the storefront.</p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="flex items-start gap-3 p-4 rounded-xl border border-amber-100 bg-amber-50/50">
               <input 

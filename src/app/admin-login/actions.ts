@@ -3,8 +3,11 @@
 import { cookies } from "next/headers";
 
 export async function loginAction(password: string) {
-  // Use env variable or default to admin123 for demo
-  const validPassword = process.env.ADMIN_PASSWORD || "admin123";
+  const validPassword = process.env.ADMIN_PASSWORD;
+
+  if (!validPassword) {
+    return { success: false, error: "Admin password is not configured on the server." };
+  }
 
   if (password === validPassword) {
     // Set a secure HTTP-only cookie
@@ -18,4 +21,9 @@ export async function loginAction(password: string) {
   }
 
   return { success: false, error: "Incorrect password." };
+}
+
+export async function logoutAction() {
+  (await cookies()).delete("admin_token");
+  return { success: true };
 }

@@ -7,16 +7,12 @@ import FadeInView from "@/components/FadeInView";
 export default async function CollectionsPage() {
   const allProducts = await getProducts();
   
-  // Mock categories for the sidebar
-  const categories = [
-    "All Sarees",
-    "Bridal Masterpieces",
-    "Pure Kanchipuram",
-    "Banarasi Heritage",
-    "Soft Silk Elegance",
-    "Designer Edition",
-    "Festive Weaves"
-  ];
+  // Extract unique categories from active products
+  const dynamicCategories = Array.from(
+    new Set(allProducts.map(p => p.category).filter(Boolean))
+  ) as string[];
+  
+  const categories = ["All Sarees", ...dynamicCategories];
 
   return (
     <div className="bg-background min-h-screen flex flex-col pt-24 md:pt-32">

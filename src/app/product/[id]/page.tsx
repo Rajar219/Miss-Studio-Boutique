@@ -5,6 +5,7 @@ import { getProductById, getRelatedProducts } from "@/lib/products";
 import ProductGallery from "@/components/ProductGallery";
 import ProductCard from "@/components/ProductCard";
 import AddToCartButton from "@/components/AddToCartButton";
+import { siteConfig } from "@/config/site";
 
 export default async function ProductDetailsPage({ params }: { params: { id: string } }) {
   const { id } = await params;
@@ -22,8 +23,19 @@ export default async function ProductDetailsPage({ params }: { params: { id: str
     ? Math.round(((product.price - product.offerPrice) / product.price) * 100)
     : 0;
     
-  const whatsappMessage = encodeURIComponent(`Hi, I'm interested in the ${product.name} (SKU: ${product.sku}). Is it available?`);
-  const whatsappUrl = `https://wa.me/1234567890?text=${whatsappMessage}`; // Replace with actual number
+  const price = product.offerPrice || product.price;
+  const productUrl = `${siteConfig.url}/product/${product.id}`;
+  const whatsappMessage = encodeURIComponent(
+`Hello ${siteConfig.name},
+I am interested in this saree.
+
+Product: ${product.name}
+SKU: ${product.sku}
+Price: Rs. ${price}
+
+Product Link: ${productUrl}`
+  );
+  const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${whatsappMessage}`;
 
   return (
     <div className="bg-[#FAF9F6] min-h-screen pt-8 pb-24">

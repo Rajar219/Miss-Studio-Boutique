@@ -2,6 +2,7 @@
 
 import fs from 'fs/promises';
 import path from 'path';
+import { requireAuth } from './auth';
 
 export interface Product {
   id: string;
@@ -21,16 +22,22 @@ export interface Product {
   category?: string;
   occasion?: string;
   sareeType?: string;
+  status?: 'active' | 'draft' | 'archived' | 'out_of_stock';
 }
 
 const getProductsFilePath = () => {
   return path.join(process.cwd(), 'src', 'data', 'products.json');
 };
 
-export async function getProducts(collectionFilter?: string): Promise<Product[]> {
+export async function getProducts(collectionFilter?: string, admin: boolean = false): Promise<Product[]> {
   try {
     const data = await fs.readFile(getProductsFilePath(), 'utf-8');
-    const products: Product[] = JSON.parse(data);
+    let products: Product[] = JSON.parse(data);
+
+    // Apply status filter for storefront
+    if (!admin) {
+      products = products.filter(p => p.status === 'active' || p.status === 'out_of_stock' || p.status === undefined);
+    }
 
     if (collectionFilter && collectionFilter !== "All") {
       return products.filter((p) => p.collection.toLowerCase() === collectionFilter.toLowerCase());
@@ -42,13 +49,13 @@ export async function getProducts(collectionFilter?: string): Promise<Product[]>
   }
 }
 
-export async function getProductById(id: string): Promise<Product | null> {
-  const products = await getProducts();
+export async function getProductById(id: string, admin: boolean = false): Promise<Product | null> {
+  const products = await getProducts(undefined, admin);
   return products.find((p) => p.id === id) || null;
 }
 
-export async function getRelatedProducts(collection: string, currentProductId: string): Promise<Product[]> {
-  const products = await getProducts();
+export async function getRelatedProducts(collection: string, currentProductId: string, admin: boolean = false): Promise<Product[]> {
+  const products = await getProducts(undefined, admin);
   return products
     .filter((p) => p.collection === collection && p.id !== currentProductId)
     .slice(0, 4);
@@ -56,7 +63,8 @@ export async function getRelatedProducts(collection: string, currentProductId: s
 
 export async function saveProduct(product: Product): Promise<{ success: boolean; error?: string }> {
   try {
-    const products = await getProducts();
+    await requireAuth();
+    const products = await getProducts(undefined, true);
     const index = products.findIndex(p => p.id === product.id);
     
     if (index >= 0) {
@@ -80,7 +88,8 @@ export async function saveProduct(product: Product): Promise<{ success: boolean;
 
 export async function deleteProduct(id: string): Promise<{ success: boolean; error?: string }> {
   try {
-    const products = await getProducts();
+    await requireAuth();
+    const products = await getProducts(undefined, true);
     const updatedProducts = products.filter(p => p.id !== id);
     
     if (products.length === updatedProducts.length) {
@@ -97,7 +106,8 @@ export async function deleteProduct(id: string): Promise<{ success: boolean; err
 
 export async function toggleProductStatus(id: string, field: 'featured' | 'trending' | 'newArrival'): Promise<{ success: boolean; error?: string }> {
   try {
-    const products = await getProducts();
+    await requireAuth();
+    const products = await getProducts(undefined, true);
     const product = products.find(p => p.id === id);
     
     if (!product) {

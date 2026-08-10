@@ -1,6 +1,7 @@
 "use client";
 
 import { useCart } from "@/context/CartContext";
+import { toast } from "sonner";
 import type { Product } from "@/lib/products";
 
 export default function AddToCartButton({ 
@@ -17,7 +18,11 @@ export default function AddToCartButton({
   return (
     <button 
       disabled={isOutOfStock}
-      onClick={() => addToCart(product)}
+      onClick={(e) => {
+        e.preventDefault();
+        addToCart(product);
+        toast.success(`Added ${product.name} to cart`);
+      }}
       className={`flex-1 bg-wine hover:bg-wine/90 disabled:bg-foreground/20 disabled:cursor-not-allowed text-white py-4 px-8 rounded-full font-medium transition-colors shadow-lg shadow-wine/20 disabled:shadow-none text-lg ${className || ""}`}
     >
       {isOutOfStock ? "Out of Stock" : "Add to Cart"}

@@ -2,6 +2,7 @@
 
 import fs from 'fs/promises';
 import path from 'path';
+import { requireAuth } from './auth';
 
 export interface Collection {
   id: string;
@@ -38,6 +39,7 @@ export async function getCollectionById(id: string): Promise<Collection | null> 
 
 export async function saveCollection(collection: Collection): Promise<{ success: boolean; error?: string }> {
   try {
+    await requireAuth();
     const collections = await getCollections();
     const index = collections.findIndex(c => c.id === collection.id);
     
@@ -63,6 +65,7 @@ export async function saveCollection(collection: Collection): Promise<{ success:
 
 export async function deleteCollection(id: string): Promise<{ success: boolean; error?: string }> {
   try {
+    await requireAuth();
     const collections = await getCollections();
     const updatedCollections = collections.filter(c => c.id !== id);
     
@@ -80,6 +83,7 @@ export async function deleteCollection(id: string): Promise<{ success: boolean; 
 
 export async function toggleCollectionFeatured(id: string): Promise<{ success: boolean; error?: string }> {
   try {
+    await requireAuth();
     const collections = await getCollections();
     const collection = collections.find(c => c.id === id);
     

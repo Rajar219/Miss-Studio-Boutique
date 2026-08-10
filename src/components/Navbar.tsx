@@ -44,15 +44,25 @@ export default function Navbar() {
         }`}
       >
         {/* Top Stylish Announcement Bar */}
-        <div className="hidden md:flex justify-between items-center px-8 py-2.5 bg-black/40 backdrop-blur-sm border-b border-gold/20 text-gold text-[10px] tracking-widest uppercase relative overflow-hidden">
+        <div className={`transition-all duration-500 ease-in-out flex flex-col md:grid md:grid-cols-3 items-center px-2 md:px-8 bg-black/40 backdrop-blur-sm border-gold/20 text-gold text-[10px] tracking-widest uppercase relative overflow-hidden ${
+          scrolled 
+            ? "max-h-0 opacity-0 py-0 border-transparent" 
+            : "max-h-24 opacity-100 py-1.5 md:py-2.5 border-b"
+        }`}>
           {/* Subtle gold shine effect in announcement bar */}
           <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
           
-          <div className="flex items-center gap-4">
-            <span className="w-1.5 h-1.5 bg-gold rotate-45 shadow-[0_0_5px_#D4AF37]" />
-            <span className="font-medium tracking-[0.2em] text-white/90">Premium Sarees. Timeless Elegance.</span>
+          <div className="hidden md:flex justify-start">
+            {/* Empty space for left side balance */}
           </div>
-          <div className="flex items-center gap-5">
+          
+          <div className="flex items-center justify-center gap-2 md:gap-3 text-center">
+            <span className="hidden md:inline-block w-1.5 h-1.5 bg-gold rotate-45 shadow-[0_0_5px_#D4AF37]" />
+            <span className="font-medium tracking-[0.05em] md:tracking-[0.1em] text-white/90 normal-case italic font-serif text-[10px] md:text-xs">Be strong and work I'm with you. - Haggai 2:4</span>
+            <span className="hidden md:inline-block w-1.5 h-1.5 bg-gold rotate-45 shadow-[0_0_5px_#D4AF37]" />
+          </div>
+          
+          <div className="hidden md:flex items-center justify-end gap-5">
             <span className="hover:text-white transition-colors cursor-pointer flex items-center gap-2">
               <span className="w-1 h-1 rounded-full bg-green-500 shadow-[0_0_5px_#22c55e]" /> WhatsApp Support
             </span>
@@ -246,7 +256,7 @@ export default function Navbar() {
 
               {/* Mobile Contact & Social Actions */}
               <div className="mt-8 pt-8 border-t border-gold/20 flex flex-col gap-5">
-                <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/80 hover:text-gold transition-colors text-sm">
+                <a href="https://wa.me/916382088191" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-white/80 hover:text-gold transition-colors text-sm">
                   <span className="w-8 h-8 rounded-full bg-green-500/10 flex items-center justify-center text-green-500">
                     <span className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_5px_#22c55e]" />
                   </span>

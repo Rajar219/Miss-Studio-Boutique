@@ -22,7 +22,21 @@ export default function Footer() {
             </p>
             <div className="flex gap-4">
               <a href="https://instagram.com/miss_studio_official" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-wine-dark transition-colors">
-                <span className="text-[10px] uppercase font-bold tracking-wider">IG</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
               </a>
             </div>
           </div>
@@ -96,7 +110,11 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gold/20 pt-8 pb-4 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/50 font-light">
-          <p>&copy; {new Date().getFullYear()} Miss Studio. All rights reserved.</p>
+          <div className="flex flex-col md:flex-row items-center gap-2 text-center md:text-left">
+            <p>&copy; {new Date().getFullYear()} Miss Studio. All rights reserved.</p>
+            <span className="hidden md:inline">|</span>
+            <p>Designed by <a href="https://wisdotech.in" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-white transition-colors underline-offset-4 hover:underline">Wisdo designs</a></p>
+          </div>
           <div className="flex gap-8">
             <Link href="/privacy-policy" className="hover:text-gold transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-gold transition-colors">Terms of Service</Link>

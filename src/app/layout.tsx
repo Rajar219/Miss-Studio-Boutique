@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/context/CartContext";
 import CartDrawer from "@/components/CartDrawer";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -32,6 +33,7 @@ export default function RootLayout({
         className={`${inter.variable} ${playfair.variable} antialiased min-h-screen flex flex-col`}
       >
         <CartProvider>
+          <Toaster position="bottom-right" />
           <Navbar />
           <CartDrawer />
           <main className="flex-1">

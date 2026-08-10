@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { X, Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
+import { X, Minus, Plus, ShoppingBag, Trash2, Loader2 } from "lucide-react";
 import { useCart } from "@/context/CartContext";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 export default function CartDrawer() {
   const { isCartOpen, setIsCartOpen, cart, updateQuantity, removeFromCart, cartTotal } = useCart();
@@ -16,28 +18,46 @@ export default function CartDrawer() {
 
   if (!isCartOpen) return null;
 
-  const handleCheckout = (e: React.FormEvent) => {
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+
+  const shipping = cartTotal >= 10000 ? 0 : 200;
+  const finalTotal = cartTotal + shipping;
+
+  const handleCheckout = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (cart.length === 0) return;
     
-    // Format WhatsApp Message
-    const phoneNumber = "916382088191"; // WhatsApp number for orders
-    let message = `*New Order - Miss Studio*\n\n`;
+    setIsLoading(true);
     
-    message += `*Customer Details:*\n`;
-    message += `Name: ${formData.name}\n`;
-    message += `Phone: ${formData.phone}\n`;
-    message += `Address: ${formData.address}\n\n`;
-    
-    message += `*Order Items:*\n`;
-    cart.forEach((item, index) => {
-      const price = item.product.offerPrice || item.product.price;
-      message += `${index + 1}. ${item.product.name} (x${item.quantity}) - Rs. ${price * item.quantity}\n`;
-    });
-    
-    message += `\n*Total:* Rs. ${cartTotal}`;
-    
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, "_blank");
+    try {
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          customerDetails: formData,
+          items: cart.map(item => ({
+            productId: item.product.id,
+            name: item.product.name,
+            quantity: item.quantity
+          }))
+        })
+      });
+      
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to process checkout");
+      }
+      
+      setIsCartOpen(false);
+      router.push(`/checkout/success?orderId=${data.orderId}`);
+      
+    } catch (error: any) {
+      toast.error(error.message);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -141,9 +161,17 @@ export default function CartDrawer() {
         {/* Footer & Checkout Form */}
         {cart.length > 0 && (
           <div className="border-t border-gold/20 p-6 bg-foreground/5">
-            <div className="flex justify-between items-center mb-6">
+            <div className="flex justify-between items-center mb-2">
               <span className="text-foreground/80 font-medium">Subtotal</span>
-              <span className="text-2xl font-serif text-wine">Rs. {cartTotal}</span>
+              <span className="text-lg font-serif text-wine">Rs. {cartTotal}</span>
+            </div>
+            <div className="flex justify-between items-center mb-6">
+              <span className="text-foreground/80 font-medium">Shipping</span>
+              <span className="text-md text-wine">{shipping === 0 ? "Free" : `Rs. ${shipping}`}</span>
+            </div>
+            <div className="flex justify-between items-center mb-6 pt-4 border-t border-gold/10">
+              <span className="text-foreground font-semibold">Total</span>
+              <span className="text-2xl font-serif text-wine font-bold">Rs. {finalTotal}</span>
             </div>
             
             <form onSubmit={handleCheckout} className="space-y-4">
@@ -176,12 +204,13 @@ export default function CartDrawer() {
               
               <button 
                 type="submit"
-                className="w-full bg-[#25D366] hover:bg-[#1DA851] text-white py-3.5 rounded-xl font-medium transition-colors shadow-lg shadow-[#25D366]/20 flex items-center justify-center gap-2"
+                disabled={isLoading}
+                className="w-full bg-wine hover:bg-wine/90 disabled:bg-wine/50 text-white py-3.5 rounded-xl font-medium transition-colors shadow-lg shadow-wine/20 flex items-center justify-center gap-2"
               >
-                Checkout via WhatsApp
+                {isLoading ? <Loader2 size={20} className="animate-spin" /> : "Place Order"}
               </button>
               <p className="text-xs text-center text-foreground/50 mt-2">
-                You will be redirected to WhatsApp to confirm your order.
+                You will be redirected to confirm your order details.
               </p>
             </form>
           </div>

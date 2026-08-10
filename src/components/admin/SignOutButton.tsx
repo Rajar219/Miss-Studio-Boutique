@@ -3,6 +3,7 @@
 import { LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useTransition } from "react";
+import { logoutAction } from "@/app/admin-login/actions";
 
 export default function SignOutButton() {
   const router = useRouter();
@@ -10,8 +11,7 @@ export default function SignOutButton() {
 
   const handleSignOut = () => {
     startTransition(async () => {
-      // Clear cookie by setting it to expire
-      document.cookie = "admin_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+      await logoutAction();
       router.push("/admin-login");
       router.refresh();
     });

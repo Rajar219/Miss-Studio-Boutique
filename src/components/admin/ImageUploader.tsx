@@ -102,13 +102,34 @@ export default function ImageUploader({
   };
 
   const replaceImage = (indexToReplace: number, file: File) => {
-    // Advanced: To replace exactly at index, we can handle it directly or just remove & upload.
-    // For simplicity, we just trigger fileInput and it will append, but we can do a targeted replace.
-    // Since input type="file" is used globally here, we'll let the standard add flow happen, 
-    // but the user wants to "Replace".
-    // A simple approach: remove it, then trigger upload.
     removeImage(indexToReplace);
     fileInputRef.current?.click();
+  };
+
+  const setAsPrimary = (index: number) => {
+    if (!multiple || index === 0) return;
+    const newImages = [...images];
+    const [item] = newImages.splice(index, 1);
+    newImages.unshift(item);
+    onChange(newImages);
+  };
+
+  const moveLeft = (index: number) => {
+    if (!multiple || index === 0) return;
+    const newImages = [...images];
+    const temp = newImages[index - 1];
+    newImages[index - 1] = newImages[index];
+    newImages[index] = temp;
+    onChange(newImages);
+  };
+
+  const moveRight = (index: number) => {
+    if (!multiple || index === images.length - 1) return;
+    const newImages = [...images];
+    const temp = newImages[index + 1];
+    newImages[index + 1] = newImages[index];
+    newImages[index] = temp;
+    onChange(newImages);
   };
 
   return (
@@ -146,35 +167,61 @@ export default function ImageUploader({
       {images.length > 0 && (
         <div className={`grid gap-4 mt-6 ${multiple ? "grid-cols-2 md:grid-cols-4" : "grid-cols-1 md:grid-cols-2"}`}>
           {images.map((src, index) => (
-            <div key={index} className="relative aspect-[3/4] rounded-lg overflow-hidden border border-gray-200 group bg-gray-50">
+            <div key={index} className="relative aspect-[3/4] rounded-lg overflow-hidden border border-gray-200 group bg-gray-50 shadow-sm">
               <Image src={src} alt={`Upload ${index}`} fill className="object-cover" />
               
+              {/* Primary Badge */}
+              {multiple && index === 0 && (
+                <div className="absolute top-2 left-2 bg-wine text-white text-[10px] uppercase tracking-wider px-2 py-1 rounded-sm shadow-md z-10">
+                  Primary
+                </div>
+              )}
+
               {/* Overlay actions */}
-              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
-                <button 
-                  type="button"
-                  title="Replace"
-                  onClick={(e) => { 
-                    e.stopPropagation(); 
-                    if (multiple) {
-                      removeImage(index);
-                      fileInputRef.current?.click();
-                    } else {
-                      fileInputRef.current?.click();
-                    }
-                  }}
-                  className="bg-white text-gray-900 p-2 rounded-full hover:bg-gray-200 transition-colors shadow-sm"
-                >
-                  <RefreshCw size={18} />
-                </button>
-                <button 
-                  type="button"
-                  title="Delete"
-                  onClick={(e) => { e.stopPropagation(); removeImage(index); }}
-                  className="bg-red-500 text-white p-2 rounded-full hover:bg-red-600 transition-colors shadow-sm"
-                >
-                  <X size={18} />
-                </button>
+              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-between p-3">
+                <div className="flex justify-end">
+                  <button 
+                    type="button"
+                    title="Delete"
+                    onClick={(e) => { e.stopPropagation(); removeImage(index); }}
+                    className="bg-red-500/90 text-white p-1.5 rounded hover:bg-red-600 transition-colors shadow-sm"
+                  >
+                    <X size={16} />
+                  </button>
+                </div>
+                
+                <div className="flex justify-between items-center w-full">
+                  <div className="flex gap-1">
+                    {multiple && index > 0 && (
+                      <button 
+                        type="button"
+                        onClick={(e) => { e.stopPropagation(); moveLeft(index); }}
+                        className="bg-white/90 text-gray-900 px-2 py-1 rounded text-xs hover:bg-white transition-colors shadow-sm font-medium"
+                      >
+                        ←
+                      </button>
+                    )}
+                    {multiple && index < images.length - 1 && (
+                      <button 
+                        type="button"
+                        onClick={(e) => { e.stopPropagation(); moveRight(index); }}
+                        className="bg-white/90 text-gray-900 px-2 py-1 rounded text-xs hover:bg-white transition-colors shadow-sm font-medium"
+                      >
+                        →
+                      </button>
+                    )}
+                  </div>
+                  
+                  {multiple && index > 0 && (
+                    <button 
+                      type="button"
+                      onClick={(e) => { e.stopPropagation(); setAsPrimary(index); }}
+                      className="bg-white/90 text-gray-900 px-2 py-1 rounded text-xs hover:bg-white transition-colors shadow-sm font-medium"
+                    >
+                      Make Primary
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
           ))}
