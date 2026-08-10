@@ -1,19 +1,19 @@
 import { ShoppingBag, Library, Star, ArrowUpRight, PackageOpen, AlertTriangle, CheckCircle2, TrendingUp, Users, ShoppingCart } from "lucide-react";
 import Link from "next/link";
-import { getProducts } from "@/lib/products";
+import { getDbProducts } from "@/app/admin/products/actions";
 import { getCollections } from "@/lib/collections";
 import Image from "next/image";
 
 export default async function AdminDashboardPage() {
   // Fetch ALL products for admin view
-  const products = await getProducts(undefined, true);
+  const products = await getDbProducts();
   const collections = await getCollections();
   
-  const activeProducts = products.filter(p => p.status === 'active').length;
-  const draftProducts = products.filter(p => p.status === 'draft').length;
-  const outOfStockCount = products.filter(p => p.stock === 0 || p.status === 'out_of_stock').length;
-  const lowStockCount = products.filter(p => p.stock > 0 && p.stock <= 3).length;
-  const featuredCount = products.filter(p => p.featured).length;
+  const activeProducts = products.filter(p => p.isActive).length;
+  const draftProducts = products.filter(p => !p.isActive).length;
+  const outOfStockCount = products.filter(p => (p.stock ?? 0) === 0).length;
+  const lowStockCount = products.filter(p => (p.stock ?? 0) > 0 && (p.stock ?? 0) <= 3).length;
+  const featuredCount = products.filter(p => p.isFeatured).length;
   
   // Real order data will be fetched here in the future
   const orders = {
@@ -135,25 +135,32 @@ export default async function AdminDashboardPage() {
           
           {recentProducts.length > 0 ? (
             <div className="divide-y divide-gray-100">
-              {recentProducts.map((product) => (
-                <div key={product.id} className="py-4 flex items-center justify-between group">
-                  <div className="flex items-center gap-4">
-                    <div className="relative w-12 h-12 rounded-lg overflow-hidden bg-gray-50 border border-gray-100">
-                      <Image src={product.images[0]} alt={product.name} fill className="object-cover" />
+              {recentProducts.map((product) => {
+                const stock = product.stock ?? 0;
+                return (
+                  <div key={product.id} className="py-4 flex items-center justify-between group">
+                    <div className="flex items-center gap-4">
+                      <div className="relative w-12 h-12 rounded-lg overflow-hidden bg-gray-50 border border-gray-100">
+                        {product.imageUrl ? (
+                          <Image src={product.imageUrl} alt={product.name} fill className="object-cover" />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center text-[10px] text-gray-400">No Img</div>
+                        )}
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-gray-900">{product.name}</p>
+                        <p className="text-xs text-gray-500">{product.collection}</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-sm font-medium text-gray-900">{product.name}</p>
-                      <p className="text-xs text-gray-500">{product.collection}</p>
+                    <div className="text-right">
+                      <p className="text-sm font-medium text-wine">Rs. {product.originalPrice || product.price}</p>
+                      <p className={`text-xs ${stock === 0 ? 'text-red-500' : stock <= 3 ? 'text-orange-500' : 'text-green-600'}`}>
+                        {stock > 0 ? `${stock} in stock` : 'Out of stock'}
+                      </p>
                     </div>
                   </div>
-                  <div className="text-right">
-                    <p className="text-sm font-medium text-wine">Rs. {product.offerPrice || product.price}</p>
-                    <p className={`text-xs ${product.stock === 0 ? 'text-red-500' : product.stock <= 3 ? 'text-orange-500' : 'text-green-600'}`}>
-                      {product.stock > 0 ? `${product.stock} in stock` : 'Out of stock'}
-                    </p>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           ) : (
             <div className="text-center py-12 text-gray-400 flex flex-col items-center">
