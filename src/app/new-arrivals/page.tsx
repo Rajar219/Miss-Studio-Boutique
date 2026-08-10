@@ -1,13 +1,12 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { getProducts } from "@/lib/products";
+import { getPublicNewArrivals } from "@/lib/db-products";
 import ProductCard from "@/components/ProductCard";
 import FadeInView from "@/components/FadeInView";
 
 export default async function NewArrivalsPage() {
-  // Fetch all products and filter for new arrivals
-  const allProducts = await getProducts();
-  const newArrivals = allProducts.filter(p => p.newArrival || p.collection === "New Arrivals");
+  // Fetch active products marked as new arrivals from Neon PostgreSQL
+  const newArrivals = await getPublicNewArrivals();
 
   return (
     <div className="flex flex-col min-h-screen bg-background">

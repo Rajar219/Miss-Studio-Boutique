@@ -89,6 +89,9 @@ export async function createDbProduct(formData: FormData): Promise<{ success: bo
     }
 
     revalidatePath("/admin/products");
+    revalidatePath("/");
+    revalidatePath("/new-arrivals");
+    revalidatePath("/collections");
     return { success: true };
   } catch (error: any) {
     console.error("Failed to create product:", error);
@@ -155,6 +158,9 @@ export async function updateDbProduct(id: string, formData: FormData): Promise<{
     }
 
     revalidatePath("/admin/products");
+    revalidatePath("/");
+    revalidatePath("/new-arrivals");
+    revalidatePath("/collections");
     return { success: true };
   } catch (error: any) {
     console.error("Failed to update product:", error);
@@ -182,6 +188,9 @@ export async function deleteDbProduct(id: string): Promise<{ success: boolean; e
     }
 
     revalidatePath("/admin/products");
+    revalidatePath("/");
+    revalidatePath("/new-arrivals");
+    revalidatePath("/collections");
     return { success: true };
   } catch (error: any) {
     console.error("Failed to delete product:", error);
@@ -198,6 +207,9 @@ export async function toggleDbProductStatus(
     await requireAuth();
     await db.update(products).set({ [field]: !currentValue, updatedAt: new Date() }).where(eq(products.id, id));
     revalidatePath("/admin/products");
+    revalidatePath("/");
+    revalidatePath("/new-arrivals");
+    revalidatePath("/collections");
     return { success: true };
   } catch (error: any) {
     console.error(`Failed to toggle ${field}:`, error);

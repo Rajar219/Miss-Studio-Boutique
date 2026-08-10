@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Star } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
-import { getProducts } from "@/lib/products";
+import { getPublicFeaturedProducts, getPublicProducts } from "@/lib/db-products";
 import { getCollections } from "@/lib/collections";
 import HeroCarousel from "@/components/HeroCarousel";
 import FadeInView from "@/components/FadeInView";
@@ -12,11 +12,11 @@ import { siteConfig } from "@/config/site";
 // TODO: Fetch real testimonials from DB.
 
 export default async function Home() {
-  const allProducts = await getProducts();
-  const collections = await getCollections();
-  
-  const featuredProducts = allProducts.filter((p) => p.featured).slice(0, 4); 
-  const bestSellers = allProducts.filter((p) => p.trending).slice(0, 4);
+  const [featuredProducts, bestSellers, collections] = await Promise.all([
+    getPublicFeaturedProducts(4),
+    getPublicProducts().then((all) => all.filter((p) => p.featured).slice(0, 4)),
+    getCollections(),
+  ]);
 
   return (
     <div className="flex flex-col min-h-screen bg-background">

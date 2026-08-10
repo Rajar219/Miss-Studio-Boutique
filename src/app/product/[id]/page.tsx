@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Star, Heart, Share2, Ruler, Truck, RotateCcw, ShieldCheck, MessageCircle } from "lucide-react";
-import { getProductById, getRelatedProducts } from "@/lib/products";
+import { getPublicProductById, getPublicRelatedProducts } from "@/lib/db-products";
 import ProductGallery from "@/components/ProductGallery";
 import ProductCard from "@/components/ProductCard";
 import AddToCartButton from "@/components/AddToCartButton";
@@ -9,13 +9,13 @@ import { siteConfig } from "@/config/site";
 
 export default async function ProductDetailsPage({ params }: { params: { id: string } }) {
   const { id } = await params;
-  const product = await getProductById(id);
+  const product = await getPublicProductById(id);
 
   if (!product) {
     notFound();
   }
 
-  const relatedProducts = await getRelatedProducts(product.collection, product.id);
+  const relatedProducts = await getPublicRelatedProducts(product.collection, product.id);
   const isOutOfStock = product.stock === 0;
   const isLowStock = product.stock > 0 && product.stock <= 3;
   

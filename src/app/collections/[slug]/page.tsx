@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { getCollectionBySlug } from "@/lib/collections";
-import { getProducts } from "@/lib/products";
+import { getPublicProducts } from "@/lib/db-products";
 import ProductCard from "@/components/ProductCard";
 import FadeInView from "@/components/FadeInView";
 
@@ -19,12 +19,8 @@ export default async function CollectionPage({ params }: CollectionPageProps) {
     notFound();
   }
 
-  // Fetch products matching this exact collection name
-  let products = await getProducts(collection.name);
-  if (products.length === 0) {
-    // Fallback just in case
-    products = await getProducts();
-  }
+  // Fetch active products for this collection from Neon PostgreSQL
+  const products = await getPublicProducts(collection.name);
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
