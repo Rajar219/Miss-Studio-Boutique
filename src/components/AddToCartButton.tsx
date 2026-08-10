@@ -32,7 +32,7 @@ Link: ${productUrl}`
     );
     
     const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${whatsappMessage}`;
-    window.open(whatsappUrl, '_blank');
+    window.location.href = whatsappUrl;
   };
 
   return (
