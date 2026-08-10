@@ -15,17 +15,12 @@ export default async function AdminDashboardPage() {
   const lowStockCount = products.filter(p => p.stock > 0 && p.stock <= 3).length;
   const featuredCount = products.filter(p => p.featured).length;
   
-  // Mocked Order Data
+  // Real order data will be fetched here in the future
   const orders = {
-    total: 124,
-    pending: 12,
-    completed: 108,
-    recent: [
-      { id: "ORD-1024", customer: "Priya Sharma", date: "Today, 10:30 AM", status: "Pending", total: "Rs. 1,240" },
-      { id: "ORD-1023", customer: "Anjali Patel", date: "Yesterday, 4:15 PM", status: "Completed", total: "Rs. 3,450" },
-      { id: "ORD-1022", customer: "Meera Reddy", date: "Aug 7, 2026", status: "Completed", total: "Rs. 890" },
-      { id: "ORD-1021", customer: "Sarah Khan", date: "Aug 6, 2026", status: "Completed", total: "Rs. 5,600" },
-    ]
+    total: 0,
+    pending: 0,
+    completed: 0,
+    recent: []
   };
   
   const recentProducts = [...products].reverse().slice(0, 5);
@@ -60,7 +55,6 @@ export default async function AdminDashboardPage() {
             <div className="w-12 h-12 rounded-full bg-wine/5 flex items-center justify-center text-wine">
               <ShoppingCart size={24} />
             </div>
-            <span className="text-xs font-medium text-green-600 bg-green-50 px-2 py-1 rounded-full">+12%</span>
           </div>
           <div>
             <h3 className="text-gray-500 text-sm font-medium">Total Orders</h3>
@@ -87,11 +81,10 @@ export default async function AdminDashboardPage() {
             <div className="w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600">
               <TrendingUp size={24} />
             </div>
-            <span className="text-xs font-medium text-green-600 bg-green-50 px-2 py-1 rounded-full">+8%</span>
           </div>
           <div>
             <h3 className="text-gray-500 text-sm font-medium">Revenue (30d)</h3>
-            <p className="text-3xl font-bold text-gray-900 mt-1">Rs. 45k</p>
+            <p className="text-3xl font-bold text-gray-900 mt-1">Rs. 0</p>
           </div>
         </div>
       </div>
@@ -106,22 +99,29 @@ export default async function AdminDashboardPage() {
             </Link>
           </div>
           
-          <div className="divide-y divide-gray-100">
-            {orders.recent.map((order) => (
-              <div key={order.id} className="py-4 flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-medium text-gray-900">{order.id} • {order.customer}</p>
-                  <p className="text-xs text-gray-500 mt-1">{order.date}</p>
+          {orders.recent.length > 0 ? (
+            <div className="divide-y divide-gray-100">
+              {orders.recent.map((order: any) => (
+                <div key={order.id} className="py-4 flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium text-gray-900">{order.id} • {order.customer}</p>
+                    <p className="text-xs text-gray-500 mt-1">{order.date}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-sm font-medium text-gray-900">{order.total}</p>
+                    <p className={`text-xs mt-1 ${order.status === 'Completed' ? 'text-green-600' : 'text-orange-500'}`}>
+                      {order.status}
+                    </p>
+                  </div>
                 </div>
-                <div className="text-right">
-                  <p className="text-sm font-medium text-gray-900">{order.total}</p>
-                  <p className={`text-xs mt-1 ${order.status === 'Completed' ? 'text-green-600' : 'text-orange-500'}`}>
-                    {order.status}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12 text-gray-400 flex flex-col items-center">
+              <PackageOpen size={48} className="mb-4 opacity-20" />
+              <p>No orders received yet.</p>
+            </div>
+          )}
         </div>
 
         {/* Recent Activity */}
