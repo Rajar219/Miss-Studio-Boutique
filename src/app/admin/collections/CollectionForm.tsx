@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { Collection, saveCollection } from "@/lib/collections";
+import { Collection, saveDbCollection } from "@/lib/db-collections";
 import { UploadCloud, ArrowLeft, Loader2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -64,7 +64,7 @@ export default function CollectionForm({ initialData }: { initialData?: Collecti
       return;
     }
 
-    const res = await saveCollection(formData as Collection);
+    const res = await saveDbCollection(formData as Collection);
     if (res.success) {
       router.push("/admin/collections");
       router.refresh();

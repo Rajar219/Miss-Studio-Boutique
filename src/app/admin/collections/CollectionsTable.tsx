@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Edit, Trash2, Plus, Eye, EyeOff } from "lucide-react";
-import { Collection, deleteCollection, toggleCollectionFeatured } from "@/lib/collections";
+import { Collection, deleteDbCollection, toggleDbCollectionFeatured } from "@/lib/db-collections";
 import { useRouter } from "next/navigation";
 
 export default function CollectionsTable({ initialCollections }: { initialCollections: Collection[] }) {
@@ -13,7 +13,7 @@ export default function CollectionsTable({ initialCollections }: { initialCollec
 
   const handleDelete = async (id: string) => {
     if (!confirm("Are you sure you want to delete this collection?")) return;
-    const res = await deleteCollection(id);
+    const res = await deleteDbCollection(id);
     if (res.success) {
       setCollections(collections.filter(c => c.id !== id));
       router.refresh();
@@ -22,8 +22,8 @@ export default function CollectionsTable({ initialCollections }: { initialCollec
     }
   };
 
-  const handleToggleFeatured = async (id: string) => {
-    const res = await toggleCollectionFeatured(id);
+  const handleToggleFeatured = async (id: string, currentFeatured: boolean) => {
+    const res = await toggleDbCollectionFeatured(id, currentFeatured);
     if (res.success) {
       setCollections(collections.map(c => 
         c.id === id ? { ...c, featured: !c.featured } : c
@@ -73,7 +73,7 @@ export default function CollectionsTable({ initialCollections }: { initialCollec
                 <td className="p-4 text-gray-500">{col.slug}</td>
                 <td className="p-4 text-center">
                   <button 
-                    onClick={() => handleToggleFeatured(col.id)}
+                    onClick={() => handleToggleFeatured(col.id, col.featured)}
                     className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
                       col.featured ? "bg-green-50 text-green-700" : "bg-gray-100 text-gray-600"
                     }`}
