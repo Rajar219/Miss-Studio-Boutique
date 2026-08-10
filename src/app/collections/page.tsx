@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { ChevronRight, Filter } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
-import { getProducts } from "@/lib/products";
+import { getPublicProducts } from "@/lib/db-products";
 import FadeInView from "@/components/FadeInView";
 
 export default async function CollectionsPage() {
-  const allProducts = await getProducts();
+  const allProducts = await getPublicProducts();
   
   // Extract unique categories from active products
   const dynamicCategories = Array.from(
