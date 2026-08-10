@@ -3,7 +3,7 @@ import { getPublicProducts } from '@/lib/db-products';
 import { getDbCollections } from '@/lib/db-collections';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://misssstudio.in';
+  const baseUrl = 'https://missstudio.in';
 
   // Base static routes
   const routes = [

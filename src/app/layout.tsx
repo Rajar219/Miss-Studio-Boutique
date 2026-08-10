@@ -16,7 +16,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://misssstudio.in"),
+  metadataBase: new URL("https://missstudio.in"),
   title: {
     default: "Miss Studio | Premium Saree Boutique",
     template: "%s | Miss Studio",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Miss Studio | Premium Saree Boutique",
     description: "Curating the finest luxury sarees with unparalleled craftsmanship.",
-    url: "https://misssstudio.in",
+    url: "https://missstudio.in",
     siteName: "Miss Studio",
     locale: "en_IN",
     type: "website",
@@ -58,8 +58,8 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Miss Studio",
-    url: "https://misssstudio.in",
-    logo: "https://misssstudio.in/icon.png",
+    url: "https://missstudio.in",
+    logo: "https://missstudio.in/icon.png",
     description: "Curating the finest luxury sarees with unparalleled craftsmanship.",
   };
 
@@ -67,7 +67,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Miss Studio",
-    url: "https://misssstudio.in",
+    url: "https://missstudio.in",
   };
 
   return (

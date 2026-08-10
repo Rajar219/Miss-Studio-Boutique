@@ -15,6 +15,6 @@ export default function robots(): MetadataRoute.Robots {
         '/checkout'
       ],
     },
-    sitemap: 'https://misssstudio.in/sitemap.xml',
+    sitemap: 'https://missstudio.in/sitemap.xml',
   };
 }

@@ -50,19 +50,19 @@ export default async function CollectionPage({ params }: CollectionPageProps) {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://misssstudio.in",
+        item: "https://missstudio.in",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Collections",
-        item: "https://misssstudio.in/collections",
+        item: "https://missstudio.in/collections",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: collection.name,
-        item: `https://misssstudio.in/collections/${slug}`,
+        item: `https://missstudio.in/collections/${slug}`,
       },
     ],
   };
