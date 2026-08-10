@@ -86,8 +86,8 @@ export default function ProductsTable({ initialProducts }: { initialProducts: Db
                     <p className="text-sm text-gray-500">Collection: <span className="text-wine font-medium">{prod.collection}</span></p>
                   </td>
                   <td className="p-4">
-                    <p className="font-medium text-gray-900">${prod.price}</p>
-                    {prod.originalPrice && <p className="text-sm text-gray-400 line-through">${prod.originalPrice}</p>}
+                    <p className="font-medium text-gray-900">Rs. {prod.price}</p>
+                    {prod.originalPrice && <p className="text-sm text-gray-400 line-through">Rs. {prod.originalPrice}</p>}
                   </td>
                   <td className="p-4">
                     <span className="inline-block bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs font-medium">

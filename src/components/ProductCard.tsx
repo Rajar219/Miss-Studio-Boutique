@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, Eye } from "lucide-react";
+import { Heart, Eye, Image as ImageIcon } from "lucide-react";
 import type { Product } from "@/lib/products";
 import AddToCartButton from "@/components/AddToCartButton";
 
@@ -15,15 +15,22 @@ export default function ProductCard({ product, priority = false }: { product: Pr
       {/* Image Container */}
       <div className="relative aspect-[3/4] overflow-hidden bg-background shrink-0 w-full">
         <Link href={`/product/${product.id}`} className="block w-full h-full">
-          <Image
-            src={product.images[0]}
-            alt={product.name}
-            fill
-            priority={priority}
-            className="object-cover object-top transition-transform duration-[1000ms] group-hover:scale-110"
-            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-          />
-          {product.images[1] && (
+          {product.images[0] && product.images[0].startsWith("http") ? (
+            <Image
+              src={product.images[0]}
+              alt={product.name}
+              fill
+              priority={priority}
+              className="object-cover object-top transition-transform duration-[1000ms] group-hover:scale-110"
+              sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            />
+          ) : (
+            <div className="w-full h-full flex flex-col items-center justify-center bg-gray-100 text-gray-400">
+              <ImageIcon size={48} className="opacity-20 mb-2" />
+              <span className="text-[10px] tracking-widest uppercase opacity-40">No Image</span>
+            </div>
+          )}
+          {product.images[1] && product.images[1].startsWith("http") && (
             <Image
               src={product.images[1]}
               alt={`${product.name} alternate view`}

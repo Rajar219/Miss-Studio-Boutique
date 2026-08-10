@@ -13,27 +13,21 @@ function mapDbToPublicProduct(p: DbProductRow): Product {
   return {
     id: p.id,
     name: p.name,
-    // collection is nullable in schema — fall back to empty string (products.collection is notNull in practice)
     collection: p.collection ?? "",
-    // DB has a single imageUrl (nullable) — wrap in array; UI uses images[0] as primary
     images: [p.imageUrl ?? ""],
     price: parseFloat(p.price),
     offerPrice: p.originalPrice ? parseFloat(p.originalPrice) : null,
-    // DB doesn't have fabric/color — use sareeType as fabric descriptor
-    fabric: p.sareeType ?? "Handwoven Silk",
-    color: "Assorted",
-    // DB doesn't manage stock — set high so cart always allows adding
-    stock: 999,
-    sku: p.id.slice(0, 8).toUpperCase(),
+    fabric: p.fabric ?? p.sareeType ?? "Handwoven Silk",
+    color: p.color ?? "Assorted",
+    stock: p.stock ?? 0,
+    sku: p.sku ?? p.id.slice(0, 8).toUpperCase(),
     description: p.caption ?? "",
     featured: p.isFeatured ?? false,
-    // DB has no 'trending' flag — map isFeatured so UI badge logic stays consistent
     trending: p.isFeatured ?? false,
     newArrival: p.isNewArrival ?? false,
     sareeType: p.sareeType ?? undefined,
-    // Use collection as category for breadcrumb display on product detail page
     category: p.collection ?? undefined,
-    status: "active",
+    status: (p.stock ?? 0) > 0 ? "active" : "out_of_stock",
   };
 }
 

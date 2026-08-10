@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Image as ImageIcon } from "lucide-react";
 
 export default function ProductGallery({ images, name }: { images: string[]; name: string }) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -61,13 +61,17 @@ export default function ProductGallery({ images, name }: { images: string[]; nam
           <button
             key={idx}
             onClick={() => setActiveIndex(idx)}
-            className={`relative w-full aspect-[3/4] shrink-0 rounded-xl overflow-hidden transition-all duration-300 ${
+            className={`relative w-full aspect-[3/4] shrink-0 rounded-xl overflow-hidden transition-all duration-300 bg-gray-100 flex items-center justify-center ${
               activeIndex === idx 
                 ? "border-[2px] border-wine shadow-md opacity-100" 
                 : "border-[2px] border-transparent opacity-70 hover:opacity-100"
             }`}
           >
-            <Image src={img} alt={`${name} thumbnail ${idx}`} fill className="object-cover" />
+            {img && img.startsWith("http") ? (
+              <Image src={img} alt={`${name} thumbnail ${idx}`} fill className="object-cover" />
+            ) : (
+              <ImageIcon size={24} className="text-gray-400 opacity-50" />
+            )}
           </button>
         ))}
       </div>
@@ -78,19 +82,26 @@ export default function ProductGallery({ images, name }: { images: string[]; nam
         {/* Desktop View (Hover to Zoom) */}
         <div 
           ref={imageRef}
-          className="hidden lg:block relative aspect-[3/4] w-full rounded-2xl overflow-hidden bg-foreground/5 cursor-zoom-in"
+          className="hidden lg:flex items-center justify-center relative aspect-[3/4] w-full rounded-2xl overflow-hidden bg-gray-100 cursor-zoom-in"
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
         >
-          <Image 
-            src={images[activeIndex]} 
-            alt={name} 
-            fill 
-            className="object-cover transition-transform duration-300 ease-out pointer-events-none" 
-            style={zoomStyle}
-            priority
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
+          {images[activeIndex] && images[activeIndex].startsWith("http") ? (
+            <Image 
+              src={images[activeIndex]} 
+              alt={name} 
+              fill 
+              className="object-cover transition-transform duration-300 ease-out pointer-events-none" 
+              style={zoomStyle}
+              priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          ) : (
+            <div className="flex flex-col items-center justify-center text-gray-400">
+              <ImageIcon size={64} className="opacity-30 mb-4" />
+              <p className="text-sm tracking-widest uppercase opacity-60">No Image Available</p>
+            </div>
+          )}
         </div>
 
         {/* Mobile View (Swipeable Carousel) */}
@@ -102,15 +113,22 @@ export default function ProductGallery({ images, name }: { images: string[]; nam
             style={{ scrollBehavior: 'smooth' }}
           >
             {images.map((img, idx) => (
-              <div key={idx} className="relative w-full flex-none snap-center">
-                <Image 
-                  src={img} 
-                  alt={`${name} image ${idx + 1}`} 
-                  fill 
-                  className="object-cover"
-                  priority={idx === 0}
-                  sizes="100vw"
-                />
+              <div key={idx} className="relative w-full flex-none snap-center flex items-center justify-center bg-gray-100">
+                {img && img.startsWith("http") ? (
+                  <Image 
+                    src={img} 
+                    alt={`${name} image ${idx + 1}`} 
+                    fill 
+                    className="object-cover"
+                    priority={idx === 0}
+                    sizes="100vw"
+                  />
+                ) : (
+                  <div className="flex flex-col items-center justify-center text-gray-400">
+                    <ImageIcon size={48} className="opacity-30 mb-2" />
+                    <p className="text-xs tracking-widest uppercase opacity-60">No Image</p>
+                  </div>
+                )}
               </div>
             ))}
           </div>

@@ -28,30 +28,33 @@ export default function CartDrawer() {
     e.preventDefault();
     if (cart.length === 0) return;
     
+    if (!formData.name || !formData.phone || !formData.address) {
+      toast.error("Please fill in all details");
+      return;
+    }
+    
     setIsLoading(true);
     
     try {
-      const response = await fetch('/api/checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          customerDetails: formData,
-          items: cart.map(item => ({
-            productId: item.product.id,
-            name: item.product.name,
-            quantity: item.quantity
-          }))
-        })
+      let orderText = `Hello Miss Studio,\n\nI would like to place an order.\n\n*Order Items:*\n`;
+      cart.forEach((item, index) => {
+        const price = item.product.offerPrice || item.product.price;
+        orderText += `${index + 1}. ${item.product.name} × ${item.quantity} — Rs. ${price}\n`;
       });
       
-      const data = await response.json();
+      orderText += `\n*Subtotal:* Rs. ${cartTotal}`;
+      orderText += `\n*Shipping:* ${shipping === 0 ? "Free" : `Rs. ${shipping}`}`;
+      orderText += `\n*Total:* Rs. ${finalTotal}\n\n`;
       
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to process checkout");
-      }
+      orderText += `*Customer Details:*\nName: ${formData.name}\nPhone: ${formData.phone}\nAddress: ${formData.address}\n\nPlease confirm availability and order details.`;
       
-      setIsCartOpen(false);
-      router.push(`/checkout/success?orderId=${data.orderId}`);
+      const encodedMessage = encodeURIComponent(orderText);
+      const whatsappUrl = `https://wa.me/916382088191?text=${encodedMessage}`;
+      
+      window.open(whatsappUrl, '_blank');
+      
+      // Optionally clear cart and close drawer
+      // setIsCartOpen(false);
       
     } catch (error: any) {
       toast.error(error.message);

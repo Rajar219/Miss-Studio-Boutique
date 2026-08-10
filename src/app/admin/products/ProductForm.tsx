@@ -31,6 +31,11 @@ export default function ProductForm({
       originalPrice: "",
       collection: collections[0]?.name || "Bridal",
       imageUrl: "",
+      stock: 0,
+      sku: "",
+      fabric: "",
+      color: "",
+      occasion: "",
       isNewArrival: false,
       isFeatured: false,
       isActive: true,
@@ -95,6 +100,11 @@ export default function ProductForm({
     payload.append("price", formData.price || "0");
     payload.append("originalPrice", formData.originalPrice || "");
     payload.append("collection", formData.collection);
+    payload.append("stock", String(formData.stock || 0));
+    payload.append("sku", formData.sku || "");
+    payload.append("fabric", formData.fabric || "");
+    payload.append("color", formData.color || "");
+    payload.append("occasion", formData.occasion || "");
     payload.append("isNewArrival", String(formData.isNewArrival));
     payload.append("isFeatured", String(formData.isFeatured));
     payload.append("isActive", String(formData.isActive));
@@ -185,6 +195,63 @@ export default function ProductForm({
                   <option key={col.id} value={col.name}>{col.name}</option>
                 ))}
               </select>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 space-y-8">
+          <h2 className="text-xl font-serif text-wine font-semibold border-b border-gray-100 pb-4">Product Details</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="space-y-3">
+              <label className="block text-sm font-medium text-gray-700">SKU</label>
+              <input 
+                type="text" 
+                value={formData.sku || ""}
+                onChange={(e) => setFormData({ ...formData, sku: e.target.value })}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-wine/20 focus:border-wine outline-none transition-all"
+                placeholder="e.g. MS-RED-001"
+              />
+            </div>
+            <div className="space-y-3">
+              <label className="block text-sm font-medium text-gray-700">Fabric</label>
+              <input 
+                type="text" 
+                value={formData.fabric || ""}
+                onChange={(e) => setFormData({ ...formData, fabric: e.target.value })}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-wine/20 focus:border-wine outline-none transition-all"
+                placeholder="e.g. Pure Silk"
+              />
+            </div>
+            <div className="space-y-3">
+              <label className="block text-sm font-medium text-gray-700">Color</label>
+              <input 
+                type="text" 
+                value={formData.color || ""}
+                onChange={(e) => setFormData({ ...formData, color: e.target.value })}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-wine/20 focus:border-wine outline-none transition-all"
+                placeholder="e.g. Crimson Red"
+              />
+            </div>
+            <div className="space-y-3">
+              <label className="block text-sm font-medium text-gray-700">Occasion</label>
+              <input 
+                type="text" 
+                value={formData.occasion || ""}
+                onChange={(e) => setFormData({ ...formData, occasion: e.target.value })}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-wine/20 focus:border-wine outline-none transition-all"
+                placeholder="e.g. Wedding, Festive"
+              />
+            </div>
+            <div className="space-y-3">
+              <label className="block text-sm font-medium text-gray-700">Stock Quantity</label>
+              <input 
+                type="number" 
+                min="0"
+                value={formData.stock ?? ""}
+                onChange={(e) => setFormData({ ...formData, stock: parseInt(e.target.value) || 0 })}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-wine/20 focus:border-wine outline-none transition-all"
+                placeholder="0"
+              />
             </div>
           </div>
         </div>
