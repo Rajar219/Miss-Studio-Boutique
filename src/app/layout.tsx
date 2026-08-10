@@ -16,8 +16,40 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Miss Studio | Premium Saree Boutique",
+  metadataBase: new URL("https://misssstudio.in"),
+  title: {
+    default: "Miss Studio | Premium Saree Boutique",
+    template: "%s | Miss Studio",
+  },
   description: "Curating the finest luxury sarees with unparalleled craftsmanship.",
+  keywords: ["saree", "premium sarees", "luxury sarees", "designer sarees", "Miss Studio", "Indian ethnic wear"],
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    title: "Miss Studio | Premium Saree Boutique",
+    description: "Curating the finest luxury sarees with unparalleled craftsmanship.",
+    url: "https://misssstudio.in",
+    siteName: "Miss Studio",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Miss Studio | Premium Saree Boutique",
+    description: "Curating the finest luxury sarees with unparalleled craftsmanship.",
+  },
 };
 
 export default function RootLayout({
