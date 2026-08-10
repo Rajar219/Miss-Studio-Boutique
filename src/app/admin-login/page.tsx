@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Lock, Loader2, ArrowRight } from "lucide-react";
+import { Lock, Loader2, ArrowRight, ArrowLeft } from "lucide-react";
+import Link from "next/link";
 import { loginAction } from "./actions";
 
 export default function AdminLoginPage() {
@@ -31,7 +32,10 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4 relative">
+      <Link href="/" className="absolute top-6 left-6 md:top-8 md:left-8 text-gray-500 hover:text-wine flex items-center gap-2 font-medium transition-colors">
+        <ArrowLeft size={18} /> Back to Website
+      </Link>
       <div className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 w-full max-w-md">
         <div className="flex justify-center mb-6">
           <div className="w-16 h-16 bg-wine/5 rounded-full flex items-center justify-center text-wine">
