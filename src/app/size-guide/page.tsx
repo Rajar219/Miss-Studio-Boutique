@@ -1,5 +1,15 @@
 import FadeInView from "@/components/FadeInView";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Size Guide | Miss Studio",
+  description: "Find the perfect fit with Miss Studio's comprehensive size guide for sarees and blouses.",
+  alternates: {
+    canonical: "/size-guide",
+  },
+};
+
 export default function SizeGuidePage() {
   return (
     <div className="min-h-screen bg-background pt-32 pb-16 px-4">

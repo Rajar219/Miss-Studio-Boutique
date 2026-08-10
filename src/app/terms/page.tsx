@@ -1,5 +1,15 @@
 import FadeInView from "@/components/FadeInView";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms of Service | Miss Studio",
+  description: "Terms and conditions for using the Miss Studio website and purchasing our products.",
+  alternates: {
+    canonical: "/terms",
+  },
+};
+
 export default function TermsPage() {
   return (
     <div className="min-h-screen bg-background pt-32 pb-16 px-4">

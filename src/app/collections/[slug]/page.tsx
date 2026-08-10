@@ -42,8 +42,37 @@ export default async function CollectionPage({ params }: CollectionPageProps) {
   // Fetch active products for this collection from Neon PostgreSQL
   const products = await getPublicProducts(collection.name);
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://misssstudio.in",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Collections",
+        item: "https://misssstudio.in/collections",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: collection.name,
+        item: `https://misssstudio.in/collections/${slug}`,
+      },
+    ],
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       {/* 1. Collection Hero Section */}
       <section className="relative w-full h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">

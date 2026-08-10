@@ -48,6 +48,56 @@ export default async function ProductDetailsPage({ params }: { params: { id: str
     
   const price = product.offerPrice || product.price;
   const productUrl = `${siteConfig.url}/product/${product.id}`;
+  
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.description,
+    image: product.images,
+    sku: product.sku,
+    category: product.category || product.sareeType,
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "INR",
+      price: price,
+      itemCondition: "https://schema.org/NewCondition",
+      availability: product.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+      url: productUrl,
+    },
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: siteConfig.url,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Collections",
+        item: `${siteConfig.url}/collections`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: product.collection,
+        item: `${siteConfig.url}/collections`,
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: product.name,
+        item: productUrl,
+      },
+    ],
+  };
+
   const whatsappMessage = encodeURIComponent(
 `Hello ${siteConfig.name},
 I am interested in this saree.
@@ -62,6 +112,14 @@ Product Link: ${productUrl}`
 
   return (
     <div className="bg-[#FAF9F6] min-h-screen pt-8 pb-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <div className="container mx-auto px-4 lg:px-8">
         
         {/* Breadcrumb & Navigation */}
@@ -180,7 +238,7 @@ Product Link: ${productUrl}`
 
             {/* Details & Features Grid */}
             <div className="bg-white p-6 md:p-8 rounded-2xl border border-gold/10 shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
-              <h3 className="font-serif text-2xl text-wine mb-6 border-b border-gold/10 pb-4">Product Details</h3>
+              <h2 className="font-serif text-2xl text-wine mb-6 border-b border-gold/10 pb-4">Product Details</h2>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 mb-8 text-sm">
                 <div className="flex justify-between border-b border-gray-100 pb-2">

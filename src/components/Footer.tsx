@@ -43,7 +43,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-serif text-2xl mb-8 text-gold">Quick Links</h3>
+            <h2 className="font-serif text-2xl mb-8 text-gold">Quick Links</h2>
             <ul className="space-y-4">
               {[
                 { name: "Home", path: "/" },
@@ -67,7 +67,7 @@ export default function Footer() {
 
           {/* Customer Care */}
           <div>
-            <h3 className="font-serif text-2xl mb-8 text-gold">Customer Care</h3>
+            <h2 className="font-serif text-2xl mb-8 text-gold">Customer Care</h2>
             <ul className="space-y-4">
               {[
                 { name: "Shipping Policy", path: "/shipping" },
@@ -91,7 +91,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="font-serif text-2xl mb-8 text-gold">Get in Touch</h3>
+            <h2 className="font-serif text-2xl mb-8 text-gold">Get in Touch</h2>
             <ul className="space-y-5 text-sm text-white/70 font-light">
               <li className="flex gap-4 items-start">
                 <MapPin className="text-gold shrink-0 mt-0.5" size={20} strokeWidth={1.5} />

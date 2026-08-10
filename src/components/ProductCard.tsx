@@ -82,7 +82,11 @@ export default function ProductCard({ product, priority = false }: { product: Pr
       
       {/* Product Info */}
       <div className="p-3 md:p-6 flex flex-col flex-1 text-center bg-background">
-        <p className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] mb-1 md:mb-2 font-medium text-wine/60">{product.collection}</p>
+        <p className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] mb-1 md:mb-2 font-medium text-wine/60">
+          <Link href={`/collections?category=${encodeURIComponent(product.collection)}`} className="hover:text-gold transition-colors relative z-20 block">
+            {product.collection}
+          </Link>
+        </p>
         
         <Link href={`/product/${product.id}`} className="mb-2 md:mb-3 block">
           <h3 className="font-serif text-sm md:text-xl transition-colors line-clamp-2 md:line-clamp-1 text-wine-dark group-hover:text-gold leading-snug">

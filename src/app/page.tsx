@@ -30,6 +30,7 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
+      <h1 className="sr-only">Miss Studio - Premium Saree Boutique</h1>
       
       {/* 1. Immersive Hero Section */}
       <HeroCarousel />
@@ -127,7 +128,7 @@ export default async function Home() {
               </div>
               <h2 className="font-serif text-4xl md:text-6xl text-wine-dark leading-tight mb-8">Elegance<br/>Redefined.</h2>
               <p className="text-wine-dark/70 font-light leading-relaxed mb-10 text-lg">
-                Step into a world of unparalleled luxury with our new Royal Edit. Each saree is a masterpiece, taking months to weave by master artisans.
+                Step into a world of unparalleled luxury with our new Royal Edit. Each saree is a masterpiece, taking months to weave by <Link href="/about" className="hover:text-wine-dark transition-colors underline decoration-gold/30 underline-offset-4 hover:decoration-gold">master artisans</Link>.
               </p>
               <Link 
                 href="/collections?category=BRIDAL%20SAREES"
@@ -169,7 +170,7 @@ export default async function Home() {
         <FadeInView className="container mx-auto px-4 md:px-8 text-center relative z-10">
           <h2 className="font-serif text-3xl md:text-5xl text-gold mb-8">Words of Love</h2>
           <p className="text-white/60 text-lg max-w-xl mx-auto">
-            Discover what our real customers have to say. Check our Instagram or visit our boutique to hear their stories.
+            Discover what our real customers have to say. Check our Instagram or <Link href="/contact" className="hover:text-gold transition-colors underline underline-offset-4 decoration-white/20 hover:decoration-gold">visit our boutique</Link> to hear their stories.
           </p>
         </FadeInView>
       </section>

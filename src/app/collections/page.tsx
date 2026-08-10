@@ -59,7 +59,7 @@ export default async function CollectionsPage() {
             <div className="lg:sticky lg:top-32 bg-background">
               <div className="flex items-center gap-3 mb-6 pb-4 border-b border-gold/20">
                 <Filter size={18} className="text-gold" />
-                <h3 className="font-serif text-xl text-wine-dark">Refine By</h3>
+                <h2 className="font-serif text-xl text-wine-dark">Refine By</h2>
               </div>
               
               <ul className="space-y-4 mb-10">

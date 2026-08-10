@@ -1,5 +1,15 @@
 import FadeInView from "@/components/FadeInView";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy | Miss Studio",
+  description: "Learn how Miss Studio collects, uses, and protects your personal information.",
+  alternates: {
+    canonical: "/privacy-policy",
+  },
+};
+
 export default function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen bg-background pt-32 pb-16 px-4">

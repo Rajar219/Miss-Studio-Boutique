@@ -1,5 +1,15 @@
 import FadeInView from "@/components/FadeInView";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Returns & Exchanges | Miss Studio",
+  description: "Miss Studio's return and exchange policy. Hassle-free returns within 14 days.",
+  alternates: {
+    canonical: "/returns",
+  },
+};
+
 export default function ReturnsPage() {
   return (
     <div className="min-h-screen bg-background pt-32 pb-16 px-4">

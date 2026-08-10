@@ -6,6 +6,8 @@ import { Lock, Loader2, ArrowRight, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { loginAction } from "./actions";
 
+
+
 export default function AdminLoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");

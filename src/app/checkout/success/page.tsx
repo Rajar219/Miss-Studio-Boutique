@@ -72,6 +72,8 @@ function SuccessContent() {
   );
 }
 
+
+
 export default function CheckoutSuccessPage() {
   return (
     <div className="min-h-screen bg-background flex flex-col items-center justify-center py-32 px-4">

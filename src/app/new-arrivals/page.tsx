@@ -4,6 +4,16 @@ import { getPublicNewArrivals } from "@/lib/db-products";
 import ProductCard from "@/components/ProductCard";
 import FadeInView from "@/components/FadeInView";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "New Arrivals | Miss Studio",
+  description: "Discover our latest handcrafted sarees, featuring fresh designs and timeless elegance.",
+  alternates: {
+    canonical: "/new-arrivals",
+  },
+};
+
 export default async function NewArrivalsPage() {
   // Fetch active products marked as new arrivals from Neon PostgreSQL
   const newArrivals = await getPublicNewArrivals();

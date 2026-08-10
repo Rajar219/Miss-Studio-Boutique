@@ -1,5 +1,15 @@
 import FadeInView from "@/components/FadeInView";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "FAQs | Miss Studio",
+  description: "Frequently asked questions about Miss Studio products, shipping, and returns.",
+  alternates: {
+    canonical: "/faqs",
+  },
+};
+
 export default function FaqsPage() {
   return (
     <div className="min-h-screen bg-background pt-32 pb-16 px-4">

@@ -84,11 +84,11 @@ export default function HeroCarousel() {
                   <span className="text-gold tracking-[0.3em] uppercase text-[10px] md:text-xs font-medium">{carouselSlides[current].eyebrow}</span>
                 </div>
 
-                <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white leading-[1.1] mb-6 tracking-wide drop-shadow-sm text-center lg:text-left w-full">
+                <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white leading-[1.1] mb-6 tracking-wide drop-shadow-sm text-center lg:text-left w-full">
                   {carouselSlides[current].title.split('\n').map((line, i) => (
                     <span key={i} className="block">{line}</span>
                   ))}
-                </h1>
+                </h2>
                 
                 <p className="text-white/80 text-sm md:text-base lg:text-lg mb-12 max-w-md font-light leading-relaxed text-center lg:text-left w-full">
                   {carouselSlides[current].subtitle}

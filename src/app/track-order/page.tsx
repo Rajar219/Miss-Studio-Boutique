@@ -1,5 +1,15 @@
 import FadeInView from "@/components/FadeInView";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Track Order | Miss Studio",
+  description: "Track your Miss Studio order status and shipping updates.",
+  alternates: {
+    canonical: "/track-order",
+  },
+};
+
 export default function TrackOrderPage() {
   return (
     <div className="min-h-screen bg-background pt-32 pb-16 px-4">

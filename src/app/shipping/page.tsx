@@ -1,5 +1,15 @@
 import FadeInView from "@/components/FadeInView";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Shipping Policy | Miss Studio",
+  description: "Information about Miss Studio's shipping methods, delivery times, and rates.",
+  alternates: {
+    canonical: "/shipping",
+  },
+};
+
 export default function ShippingPage() {
   return (
     <div className="min-h-screen bg-background pt-32 pb-16 px-4">
