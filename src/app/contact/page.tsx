@@ -1,4 +1,13 @@
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Us | Miss Studio Support & Enquiries",
+  description: "Get in touch with Miss Studio. We would love to hear from you and assist you in finding the perfect bridal or luxury saree.",
+  alternates: {
+    canonical: "/contact",
+  },
+};
 
 export default function ContactPage() {
   return (

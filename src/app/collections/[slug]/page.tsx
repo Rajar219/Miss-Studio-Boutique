@@ -2,18 +2,38 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { getCollectionBySlug } from "@/lib/collections";
+import { getDbCollectionBySlug } from "@/lib/db-collections";
 import { getPublicProducts } from "@/lib/db-products";
 import ProductCard from "@/components/ProductCard";
 import FadeInView from "@/components/FadeInView";
+import { Metadata } from "next";
 
 interface CollectionPageProps {
   params: Promise<{ slug: string }>;
 }
 
+export async function generateMetadata({ params }: CollectionPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const collection = await getDbCollectionBySlug(slug);
+
+  if (!collection) {
+    return {
+      title: "Collection Not Found",
+    };
+  }
+
+  return {
+    title: `${collection.name} | Premium Sarees`,
+    description: collection.description || `Explore our exclusive ${collection.name} collection of premium sarees.`,
+    alternates: {
+      canonical: `/collections/${slug}`,
+    },
+  };
+}
+
 export default async function CollectionPage({ params }: CollectionPageProps) {
   const { slug } = await params;
-  const collection = await getCollectionBySlug(slug);
+  const collection = await getDbCollectionBySlug(slug);
 
   if (!collection) {
     notFound();

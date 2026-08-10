@@ -6,6 +6,29 @@ import ProductGallery from "@/components/ProductGallery";
 import ProductCard from "@/components/ProductCard";
 import AddToCartButton from "@/components/AddToCartButton";
 import { siteConfig } from "@/config/site";
+import { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const { id } = await params;
+  const product = await getPublicProductById(id);
+
+  if (!product) {
+    return {
+      title: "Product Not Found",
+    };
+  }
+
+  const title = `${product.name} | Premium ${product.sareeType || 'Sarees'}`;
+  const description = product.description || `Buy the elegant ${product.name} at Miss Studio. Premium craftsmanship and luxurious fabrics for your special occasions.`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `/product/${id}`,
+    },
+  };
+}
 
 export default async function ProductDetailsPage({ params }: { params: { id: string } }) {
   const { id } = await params;

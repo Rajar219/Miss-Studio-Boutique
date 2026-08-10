@@ -4,6 +4,16 @@ import ProductCard from "@/components/ProductCard";
 import { getPublicProducts } from "@/lib/db-products";
 import FadeInView from "@/components/FadeInView";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "All Collections | Premium Sarees",
+  description: "Explore our entire heritage collection. Each piece is handwoven by master artisans, preserving centuries of traditional craftsmanship.",
+  alternates: {
+    canonical: "/collections",
+  },
+};
+
 export default async function CollectionsPage() {
   const allProducts = await getPublicProducts();
   

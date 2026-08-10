@@ -11,6 +11,16 @@ import { siteConfig } from "@/config/site";
 // Reviews removed from production as requested by user.
 // TODO: Fetch real testimonials from DB.
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Miss Studio | Premium Saree Boutique",
+  description: "Discover our exclusive collection of premium silk, designer, and traditional sarees. Handwoven by master artisans for your perfect occasion.",
+  alternates: {
+    canonical: "/",
+  },
+};
+
 export default async function Home() {
   const [featuredProducts, bestSellers, collections] = await Promise.all([
     getPublicFeaturedProducts(4),

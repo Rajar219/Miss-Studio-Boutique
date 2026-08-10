@@ -1,4 +1,13 @@
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us | Our Story & Heritage",
+  description: "Learn about Miss Studio's journey, our master artisans, and our dedication to preserving the centuries-old tradition of handwoven Indian sarees.",
+  alternates: {
+    canonical: "/about",
+  },
+};
 
 export default function AboutPage() {
   return (

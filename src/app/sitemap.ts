@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 import { getPublicProducts } from '@/lib/db-products';
-import { getCollections } from '@/lib/collections';
+import { getDbCollections } from '@/lib/db-collections';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://misssstudio.in';
@@ -36,7 +36,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   // Dynamic collection routes
-  const collections = await getCollections();
+  const collections = await getDbCollections();
   const collectionRoutes = collections.map((collection) => ({
     url: `${baseUrl}/collections/${collection.slug}`,
     lastModified: new Date(),
