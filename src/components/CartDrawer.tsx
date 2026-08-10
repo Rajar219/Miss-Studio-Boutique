@@ -39,7 +39,8 @@ export default function CartDrawer() {
       let orderText = `Hello Miss Studio,\n\nI would like to place an order.\n\n*Order Items:*\n`;
       cart.forEach((item, index) => {
         const price = item.product.offerPrice || item.product.price;
-        orderText += `${index + 1}. ${item.product.name} × ${item.quantity} — Rs. ${price}\n`;
+        const imageUrl = item.product.images?.[0] || "";
+        orderText += `${index + 1}. ${item.product.name} × ${item.quantity} — Rs. ${price}\nImage: ${imageUrl}\n\n`;
       });
       
       orderText += `\n*Subtotal:* Rs. ${cartTotal}`;
@@ -51,7 +52,7 @@ export default function CartDrawer() {
       const encodedMessage = encodeURIComponent(orderText);
       const whatsappUrl = `https://wa.me/916382088191?text=${encodedMessage}`;
       
-      window.open(whatsappUrl, '_blank');
+      window.location.href = whatsappUrl;
       
       // Optionally clear cart and close drawer
       // setIsCartOpen(false);
