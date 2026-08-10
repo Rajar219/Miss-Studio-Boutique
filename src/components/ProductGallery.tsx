@@ -68,7 +68,7 @@ export default function ProductGallery({ images, name }: { images: string[]; nam
             }`}
           >
             {img && img.startsWith("http") ? (
-              <Image src={img} alt={`${name} thumbnail ${idx}`} fill className="object-cover" />
+              <Image src={img} alt={`${name} - Small Preview ${idx + 1}`} fill className="object-cover" />
             ) : (
               <ImageIcon size={24} className="text-gray-400 opacity-50" />
             )}
@@ -117,7 +117,7 @@ export default function ProductGallery({ images, name }: { images: string[]; nam
                 {img && img.startsWith("http") ? (
                   <Image 
                     src={img} 
-                    alt={`${name} image ${idx + 1}`} 
+                    alt={`${name} - Detailed View ${idx + 1}`} 
                     fill 
                     className="object-cover"
                     priority={idx === 0}

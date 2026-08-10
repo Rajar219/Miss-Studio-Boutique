@@ -154,7 +154,7 @@ export default function HeroCarousel() {
               >
                 <Image
                   src={carouselSlides[current].image}
-                  alt="Luxury Saree Model"
+                  alt={`${carouselSlides[current].eyebrow} - ${carouselSlides[current].title.replace('\\n', ' ')}`}
                   fill
                   quality={100}
                   unoptimized={true}

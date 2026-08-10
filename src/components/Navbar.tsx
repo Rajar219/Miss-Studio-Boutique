@@ -123,7 +123,7 @@ export default function Navbar() {
                 <Link href="/" className="flex items-center justify-center w-full h-full rounded-full overflow-hidden relative bg-wine-dark border-[2px] border-[#4A0A23] shadow-[inset_0_4px_10px_rgba(0,0,0,0.8)]">
                   <Image
                     src="/assests/logo.png"
-                    alt="Miss Studio"
+                    alt="Miss Studio Official Logo"
                     fill
                     className="object-cover"
                     priority
@@ -228,7 +228,7 @@ export default function Navbar() {
                 <div className="relative w-[72px] h-[72px] rounded-full border border-gold/40 overflow-hidden bg-wine">
                   <Image
                     src="/assests/logo.png"
-                    alt="Miss Studio"
+                    alt="Miss Studio Official Logo"
                     fill
                     className="object-cover"
                   />

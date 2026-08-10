@@ -113,7 +113,7 @@ export default async function Home() {
           <div className="w-full md:w-1/2 relative h-[50vh] md:h-full">
             <Image
               src="/assests/IMG-20260807-WA0054.jpg"
-              alt="Premium Silk Saree"
+              alt="The Royal Edit - Handcrafted Premium Silk Saree Collection"
               fill
               className="object-cover"
             />

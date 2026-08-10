@@ -12,7 +12,7 @@ export default function Footer() {
             <div className="relative w-48 h-16">
               <Image
                 src="/assests/logo.png"
-                alt="Miss Studio"
+                alt="Miss Studio Official Logo"
                 fill
                 className="object-contain object-left"
               />
