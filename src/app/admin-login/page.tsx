@@ -38,7 +38,7 @@ export default function AdminLoginPage() {
             <Lock size={32} />
           </div>
         </div>
-        
+
         <div className="text-center mb-8">
           <h1 className="font-serif text-3xl text-wine font-bold mb-2">Admin Access</h1>
           <p className="text-gray-500">Please enter the master password to continue.</p>
@@ -53,8 +53,8 @@ export default function AdminLoginPage() {
 
           <div className="space-y-2">
             <label className="text-sm font-medium text-gray-700">Master Password</label>
-            <input 
-              type="password" 
+            <input
+              type="password"
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -63,7 +63,7 @@ export default function AdminLoginPage() {
             />
           </div>
 
-          <button 
+          <button
             type="submit"
             disabled={loading || !password}
             className="w-full bg-wine text-white py-4 rounded-xl font-medium hover:bg-wine-dark transition-colors flex items-center justify-center gap-2 disabled:opacity-70"
